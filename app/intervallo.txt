@@ -1,0 +1,32 @@
+2022 rem [ intervallo                ]
+2023 rem [   a game written in basic ]
+2024 rem [   by ern0/abaddon in 2022 ]
+2025 : 
+
+2030 gosub 5000
+2031 gosub 5100
+2032 end
+2033 :
+
+5000 rem detect machine type
+5001 c=16
+5002 if peek(789)<>206 then c=64
+5003 if peek(788)<>14 then c=64
+5004 return
+5005 :
+
+5100 rem clear screen, set colors
+5101 if c=64 then 5120
+5110 :
+5111 scnclr
+5112 color 4,7,1
+5113 color 0,7,2
+5114 color 1,2,7
+5115 return
+5116 :
+5120 print chr$(147)
+5121 rem border
+5122 rem paper
+5123 rem ink
+5124 return
+5125 :
