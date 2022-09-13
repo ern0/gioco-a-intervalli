@@ -1,3 +1,6 @@
+.rmv/
+.vscode/
+
 # Prerequisites
 *.d
 
