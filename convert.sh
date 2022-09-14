@@ -2,7 +2,7 @@
 
 concatenate() {
 
-	cat \
+	awk "{print}" \
 		src/intervallo-game.bas \
 		src/intervallo-platform-$1.bas \
 		> /tmp/intervallo/$1.txt
@@ -16,9 +16,12 @@ concatenate() {
 }
 
 main() {
+
 	mkdir -p /tmp/intervallo
+
 	concatenate plus4 3
 	concatenate c64 2
+
 }
 
 main
