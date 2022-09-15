@@ -10,5 +10,6 @@
 210 print "  intervallo - minimalistic music game"
 220 :
 300 rem test
-310 n1%=1:n2%=4:gosub 5400
+310 n1%=1:n2%=4:gosub 5500
+311 n1%=6:n2%=18:gosub 5500
 320 end
