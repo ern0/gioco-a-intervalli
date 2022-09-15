@@ -4,7 +4,8 @@
 6003 for i=0 to 12
 6004 read nm$(i)
 6005 next i
-6006 :
+6006 return
+6007 :
 6080 data "min.2nd"
 6081 data "maj.2nd"
 6082 data "min.3rd"
