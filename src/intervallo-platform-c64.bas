@@ -1,19 +1,19 @@
-5000 rem clear screen, set colors
-5010 print chr$(147)
-5021 :
-5100 rem reset colors
-5110 poke 53280,6
-5120 poke 53281,14
-5130 :
-5200 rem set cursor color to normal
-5210 poke 646,1
-5220 return
-5231 :
-5300 rem initialize sound
-5310 rem todo
-5320 return
+8000 rem clear screen, set colors
+8001 print chr$(147)
+8002 :
+8100 rem reset colors
+8101 poke 53280,6
+8102 poke 53281,14
+8103 :
+8200 rem set cursor color to normal
+8201 poke 646,1
+8202 return
+8203 :
+8500 rem initialize sound
+8501 rem todo
+8502 return
 5330 :
-5400 rem play notes (n1%,n2%)
-5410 rem todo
-5420 return
-5430 :
+8600 rem play single or pair (n1%,n2%)
+8601 rem todo
+8602 return
+8603 :

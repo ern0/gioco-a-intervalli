@@ -3,7 +3,8 @@
 concatenate() {
 
 	awk "{print}" \
-		src/intervallo-game.bas \
+		src/intervallo-game-main.bas \
+		src/intervallo-game-subs.bas \
 		src/intervallo-platform-$1.bas \
 		> /tmp/intervallo/$1.txt
 
