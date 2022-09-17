@@ -26,7 +26,12 @@ class Renumber:
         self.lines = []
         self.nums = {}
 
-        f = open(fnam, "r")
+        try: 
+            f = open(fnam, "r")
+        except Exception as e:
+            print(e)
+            quit()
+            
         while True:
 
             line = f.readline()
