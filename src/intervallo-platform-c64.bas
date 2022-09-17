@@ -12,7 +12,7 @@
 8500 rem initialize sound
 8501 rem todo
 8502 return
-5330 :
+8503 :
 8600 rem play single or pair (n1%,n2%)
 8601 rem todo
 8602 return

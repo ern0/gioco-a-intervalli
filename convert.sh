@@ -18,6 +18,8 @@ concatenate() {
 
 main() {
 
+	./renumber.py src/*.bas
+
 	mkdir -p /tmp/intervallo
 
 	concatenate plus4 3
