@@ -1,11 +1,11 @@
-8000 rem clear screen, set colors
+8000 rem clear screen, reset colors
 8001 print chr$(147)
 8002 :
 8100 rem reset colors
 8101 poke 53280,6
 8102 poke 53281,14
 8103 :
-8200 rem set cursor color to normal
+8200 rem reset cursor color
 8201 poke 646,1
 8202 return
 8203 :

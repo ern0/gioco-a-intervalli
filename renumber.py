@@ -40,8 +40,14 @@ class Renumber:
             line = line.strip()
 
             pos = line.find(" ")
-            num = int(line[:pos])
-            inst = line[pos+1:]
+            if pos > -1:
+                num = int(line[:pos])
+                inst = line[pos+1:]
+            else:
+                if line == "":
+                    line = 1
+                num = int(line)
+                inst = ":"
 
             obj = (num, inst,)
             self.lines.append(obj)

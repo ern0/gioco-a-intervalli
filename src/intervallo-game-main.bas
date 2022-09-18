@@ -15,6 +15,5 @@
 1010 n1%=4:n2%=0:gosub 8600
 1011 n1%=6:n2%=18:gosub 8600
 1012 :
-1013 print
-1014 print "to be continued..."
+1013 print "to be continued..."
 5999 end
