@@ -2,6 +2,8 @@
 
 concatenate() {
 
+	mkdir -p /tmp/intervallo
+
 	awk "{print}" \
 		src/intervallo-game-main.bas \
 		src/intervallo-game-subs.bas \
@@ -12,19 +14,33 @@ concatenate() {
 		-w$2 \
 		-o release/intervallo-$1.prg \
 		-- \
-		/tmp/intervallo/$1.txt
+		/tmp/intervallo/$1.txt \
+		| grep -v "intervallo$"
+
+}
+
+autodoc() {
+
+	echo $1:
+	cat src/intervallo-*$1*.bas \
+	| grep "00 rem" \
+	| sort \
+	| uniq \
+	| sed "s/^/  /"
 
 }
 
 main() {
 
+	clear
+
 	./renumber.py src/*.bas
-
-	mkdir -p /tmp/intervallo
-
+	
 	concatenate plus4 3
 	concatenate c64 2
 
+	autodoc subs
+	autodoc platform
 }
 
 main

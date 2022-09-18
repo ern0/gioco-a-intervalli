@@ -37,7 +37,7 @@
 8609 if n2%<>0 then sound 2,t2%,l%
 8610 :
 8611 t%=peek(65297)/16
-8612 if t%>0 goto 8611
+8612 if t%>0 then 8611
 8613 return
 8614 :
 8650 rem convert note (n%) to ted (t%)
