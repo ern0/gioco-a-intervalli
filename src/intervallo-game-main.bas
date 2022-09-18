@@ -9,11 +9,5 @@
 1004 :
 1005 rem main screen
 1006 print "  intervallo - minimalistic music game"
-1007 :
-1008 rem test
-1009 n1%=1:n2%=0:gosub 8600
-1010 n1%=4:n2%=0:gosub 8600
-1011 n1%=6:n2%=18:gosub 8600
-1012 :
-1013 print "to be continued..."
-5999 end
+1007 print
+1008 end
