@@ -10,4 +10,8 @@
 1005 rem main screen
 1006 print "  intervallo - minimalistic music game"
 1007 print
-1008 end
+1008 gosub 2000
+1009 end
+1010 :
+2000 rem game, easy
+2001 :

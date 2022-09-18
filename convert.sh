@@ -39,6 +39,7 @@ main() {
 	concatenate plus4 3
 	concatenate c64 2
 
+	autodoc main
 	autodoc subs
 	autodoc platform
 }

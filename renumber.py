@@ -42,7 +42,11 @@ class Renumber:
             pos = line.find(" ")
             if pos > -1:
                 num = line[:pos]
-                inst = line[pos+1:]
+                if num.isnumeric():
+                    inst = line[pos+1:]
+                else:
+                    inst = line.strip()
+                    num = 0
             else:
                 if line.isnumeric():
                     num = line
