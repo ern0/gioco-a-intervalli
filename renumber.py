@@ -45,15 +45,18 @@ class Renumber:
                 if num.isnumeric():
                     inst = line[pos+1:]
                 else:
-                    inst = line.strip()
                     num = 0
+                    inst = line.strip()
             else:
                 if line.isnumeric():
                     num = line
-                    inst = ":"
+                    inst = ""
                 else:
                     num = 0
-                    inst = line
+                    inst = line.strip()
+                    
+            if inst.strip() == "":
+                inst = ":"
 
             obj = (int(num), inst,)
             self.lines.append(obj)
