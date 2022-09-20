@@ -31,3 +31,7 @@
 6151 data 6, 8, 9, 10, 11
 6152 data 13, 14, 15, 16
 6153 :
+6200 rem menu, params read from data
+6201 read k$
+6202 read mk$
+6203 :

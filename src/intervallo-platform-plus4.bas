@@ -40,22 +40,24 @@
 8612 if t%>0 then 8611
 8613 return
 8614 :
-8650 rem convert note (n%) to ted (t%)
+8650 rem convert note (n%) => t%
 8651 f=ft(n%)
 8652 t%=1024-(111860.781/f)
 8653 return
 8654 :
-8800 rem print msg (k$), get and check key (kk$), return valid key (k$)
+8800 rem get key (k$,k$$) => k$
 8801 print k$; ":  "; chr$(157);
 8802 k%=0
 8803 if k%=0 then print " "; chr$(157);
-8804 if k%=5 then print chr$(185); chr$(157);
+8804 if k%=11 then print chr$(185); chr$(157);
 8805 k%=k%+1
-8806 if k%>10 then k%=0
+8806 if k%>20 then k%=0
 8807 get k$
 8808 if k$="" then 8803
-8809 print k$; chr$(157);
-8810 for i=1 to len(kk$)
-8811 if mid$(kk$,i,1)=k$ then return
-8812 next i
-8813 goto 8802
+8809 if asc(k$)<48 then 8805
+8810 if asc(k$)>90 then 8805
+8811 print k$; chr$(157);
+8812 for i=1 to len(kk$)
+8813 if mid$(kk$,i,1)=k$ then return
+8814 next i
+8815 goto 8802
