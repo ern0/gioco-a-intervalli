@@ -31,7 +31,14 @@
 6151 data 6, 8, 9, 10, 11
 6152 data 13, 14, 15, 16
 6153 :
-6200 rem menu, params read from data
-6201 read k$
-6202 read mk$
+6200 rem print separator line
+6201 print "----------------------------------------"
+6202 return
 6203 :
+6300 rem print header
+6301 gosub 6200
+6302 print "  intervallo - minimalistic music game"
+6303 print "   https://github.com/ern0/intervallo"
+6304 gosub 6200
+6305 return
+6306 :
