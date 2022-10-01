@@ -1,7 +1,7 @@
 6000 rem setup interval names: nm$()
 6001 dim nm$(20)
 6002 restore 6050
-6003 for i=0 to 12
+6003 for i=0 to 16
 6004 read nm$(i)
 6005 next i
 6006 return
@@ -18,14 +18,18 @@
 6059 data "min.7th"
 6060 data "maj.7th"
 6061 data "perf.oct"
-6062 :
+6062 data "oct+min2"
+6063 data "oct+maj2"
+6064 data "oct+min3"
+6065 data "oct+maj3"
+6066 :
 6100 rem setup intervals, diff. order: iall()
 6101 dim iall%(20)
 6102 restore 6150
 6103 for i=0 to 16
 6104 read iall%(i)
 6105 next i
-6106 dim igame%(12)
+6106 dim igame%(16)
 6107 return
 6108 :
 6150 data 7, 5, 3, 4, 2, 1, 12
