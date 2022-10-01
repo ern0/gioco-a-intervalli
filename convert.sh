@@ -23,10 +23,10 @@ autodoc() {
 
 	echo $1:
 	cat src/intervallo-*$1*.bas \
-	| grep "00 rem" \
-	| sort \
-	| uniq \
-	| sed "s/^/  /"
+		| grep "00 rem" \
+		| sort \
+		| uniq \
+		| sed "s/^/  /"
 
 }
 
@@ -42,6 +42,13 @@ main() {
 	autodoc main
 	autodoc subs
 	autodoc platform
+
+	echo -n "LOC: "
+	cat src/*.bas \
+		| grep -v ":$" \
+		| grep -v "rem\ " \
+		| wc -l
+	
 }
 
 main

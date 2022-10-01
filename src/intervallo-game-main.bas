@@ -54,15 +54,16 @@
 1223 next i
 1224 :
 1225 for round=1 to 100
-1226 print "round";round;"of 10",
-1227 ix%=int(rnd(0)*(numiv%))
-1228 theiv%=igame%(ix%)
-1229 lim%=int((24-theiv%-shft%)/2)
-1230 n1%=int(rnd(0)*lim%*2)+shft%
-1231 n2%=n1%+theiv%
-1232 print n1%;"-";n2%;":";theiv%
-1233 :
-1234 shft%=1-shft%
-1235 next round
-1236 end
-1237 return
+1226 :
+1227 print "round";round;"of 10",
+1228 ix%=int(rnd(0)*(numiv%))
+1229 theiv%=igame%(ix%)
+1230 lim%=int((24-theiv%-shft%)/2)
+1231 n1%=int(rnd(0)*lim%*2)+shft%
+1232 n2%=n1%+theiv%
+1233 print n1%;"-";n2%;":";theiv%
+1234 :
+1235 shft%=1-shft%
+1236 next round
+1237 end
+1238 return
