@@ -19,14 +19,15 @@
 6060 data "maj.7th"
 6061 data "perf.oct"
 6062 :
-6100 rem setup intervals, diff. order: id()
-6101 dim id(20)
+6100 rem setup intervals, diff. order: iall()
+6101 dim iall%(20)
 6102 restore 6150
 6103 for i=0 to 16
-6104 read id(i)
+6104 read iall%(i)
 6105 next i
-6106 return
-6107 :
+6106 dim igame%(12)
+6107 return
+6108 :
 6150 data 7, 5, 3, 4, 2, 1, 12
 6151 data 6, 8, 9, 10, 11
 6152 data 13, 14, 15, 16
