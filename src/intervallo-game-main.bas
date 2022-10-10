@@ -36,34 +36,41 @@
 1205 if k$="4" then numiv%=12 : setiv%=12 : lvl$="hard"
 1206 if k$="5" then numiv%=12 : setiv%=16 : lvl$="extreme"
 1207 :
-1208 gosub 8000
-1209 gosub 6300
+1208 shft%=0
+1209 pts%=0
 1210 :
-1211 print "difficulty level: ";lvl$
-1212 shft%=0
-1213 :
-1214 for i=0 to setiv%-1
-1215 igame%(i)=iall%(i)
-1216 next i
-1217 :
-1218 for i=0 to numiv%-1
-1219 slct%=int(rnd(0)*(setiv%-i))+i
-1220 tmp%=igame%(i)
-1221 igame%(i)=igame%(slct%)
-1222 igame%(slct%)=tmp%
-1223 next i
-1224 :
-1225 for round=1 to 100
-1226 :
-1227 print "round";round;"of 10",
-1228 ix%=int(rnd(0)*(numiv%))
-1229 theiv%=igame%(ix%)
-1230 lim%=int((24-theiv%-shft%)/2)
-1231 n1%=int(rnd(0)*lim%*2)+shft%
-1232 n2%=n1%+theiv%
-1233 print n1%;"-";n2%;":";theiv%
+1211 for i=0 to setiv%-1
+1212 igame%(i)=iall%(i)
+1213 next i
+1214 :
+1215 for i=0 to numiv%-1
+1216 slct%=int(rnd(0)*(setiv%-i))+i
+1217 tmp%=igame%(i)
+1218 igame%(i)=igame%(slct%)
+1219 igame%(slct%)=tmp%
+1220 next i
+1221 :
+1222 rem game round loop
+1223 for round=1 to 10
+1224 try%=1
+1225 :
+1226 gosub 8000
+1227 gosub 6300
+1228 :
+1229 print "difficulty level: ";lvl$
+1230 print "round:";round;"of 10"
+1231 print "points:";pts%
+1232 print "attempt:";try%
+1233 :
 1234 :
-1235 shft%=1-shft%
-1236 next round
-1237 end
-1238 return
+1235 ix%=int(rnd(0)*(numiv%))
+1236 theiv%=igame%(ix%)
+1237 lim%=int((24-theiv%-shft%)/2)
+1238 n1%=int(rnd(0)*lim%*2)+shft%
+1239 n2%=n1%+theiv%
+1240 print n1%;"-";n2%;":";theiv%;
+1241 :
+1242 shft%=1-shft%
+1243 next round
+1244 end
+1245 return
