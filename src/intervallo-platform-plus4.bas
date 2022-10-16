@@ -61,3 +61,7 @@
 8813 if mid$(kk$,i,1)=k$ then return
 8814 next i
 8815 goto 8802
+8816 :
+8900 rem wait for a half moment
+8901 for i=1 to 200
+8902 next i
