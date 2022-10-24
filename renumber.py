@@ -24,7 +24,6 @@ class Renumber:
     def load_file(self, fnam):
 
         self.lines = []
-        self.nums = {}
 
         try: 
             f = open(fnam, "r")
@@ -60,7 +59,6 @@ class Renumber:
 
             obj = (int(num), inst,)
             self.lines.append(obj)
-            self.nums[num] = obj
 
         f.close()
 
@@ -131,11 +129,12 @@ class Renumber:
         pos += len(found)
         left = sub[:pos]
         right = sub[pos:]
+        right_strip = right.strip()
         
-        if found == "then" and not right.isnumeric():
+        if found == "then" and not right_strip.isnumeric():
             return sub
 
-        old_num = int(right.strip())
+        old_num = int(right_strip)
         if old_num in self.renum:
             new_num = self.renum[old_num]
             right = right.replace(str(old_num), str(new_num))

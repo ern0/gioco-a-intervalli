@@ -27,24 +27,24 @@
 8556 :
 8600 rem play single or pair (n1%,n2%)
 8601 if n1%=0 then 8604
-8602 n%=n1%:gosub 8650:t1%=t%
+8602 n%=n1%:gosub 8635:t1%=t%
 8603 if n2%=0 then 8606
-8604 n%=n2%:gosub 8650:t2%=t%
+8604 n%=n2%:gosub 8635:t2%=t%
 8605 :
 8606 l%=30
 8607 if n1%=0 and n2%=0 then l%=20
 8608 if n1%<>0 then sound 1,t1%,l%
 8609 if n2%<>0 then sound 2,t2%,l%
-8610 :
-8611 t%=peek(65297)/16
-8612 if t%>0 then 8611
-8613 return
-8614 :
-8650 rem convert note (n%) => t%
-8651 f=ft(n%)
-8652 t%=1024-(111860.781/f)
-8653 return
-8654 :
+8630 :
+8631 t%=peek(65297)/16
+8632 if t%>0 then 8611
+8633 return
+8634 :
+8635 rem convert note (n%) => t%
+8636 f=ft(n%)
+8637 t%=1024-(111860.781/f)
+8638 return
+8639 :
 8800 rem get key (k$,k$$) => k$
 8801 print k$; ":  "; chr$(157);
 8802 k%=0
@@ -55,13 +55,15 @@
 8807 get k$
 8808 if k$="" then 8803
 8809 if asc(k$)<48 then 8805
-8810 if asc(k$)>90 then 8805
-8811 print k$; chr$(157);
-8812 for i=1 to len(kk$)
-8813 if mid$(kk$,i,1)=k$ then return
-8814 next i
-8815 goto 8802
-8816 :
+8830 if asc(k$)>90 then 8805
+8831 print k$; chr$(157);
+8832 for i=1 to len(kk$)
+8833 if mid$(kk$,i,1)=k$ then return
+8834 next i
+8835 goto 8802
+8836 :
 8900 rem wait for a half moment
 8901 for i=1 to 200
 8902 next i
+8903 return
+8904 :
