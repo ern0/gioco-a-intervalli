@@ -9,6 +9,16 @@
 8201 color 1,2,7
 8202 return
 8203 :
+8250 rem flash border red
+8251 c%=3:l%=2
+8252 goto 8350
+8300 rem flash border green
+8301 c%=6:l%=4
+8350 rem flash border with color c%,l%
+8351 color 4,c%,l%
+8352 gosub 8900
+8353 goto 8100
+8354 :
 8500 rem initialize sound
 8501 poke 65297,7
 8502 dim ft(25)
@@ -23,21 +33,21 @@
 8552 data 277.2,293.68,311.12,329.64
 8553 data 349.24,370,392,415.32
 8554 data 440,466.16,493.92,523.28
-8555 data 554.4,487.36,622.24,659.28
+8555 data 554.4,587.36,622.24,659.28
 8556 :
 8600 rem play single or pair (n1%,n2%)
-8601 if n1%=0 then 8604
+8601 if n1%=-1 then 8603
 8602 n%=n1%:gosub 8635:t1%=t%
-8603 if n2%=0 then 8606
+8603 if n2%=-1 then 8606
 8604 n%=n2%:gosub 8635:t2%=t%
 8605 :
 8606 l%=30
-8607 if n1%=0 and n2%=0 then l%=20
-8608 if n1%<>0 then sound 1,t1%,l%
-8609 if n2%<>0 then sound 2,t2%,l%
+8607 if n1%=-1 or n2%=-1 then l%=20
+8608 if n1%<>-1 then sound 1,t1%,l%
+8609 if n2%<>-1 then sound 2,t2%,l%
 8630 :
 8631 t%=peek(65297)/16
-8632 if t%>0 then 8611
+8632 if t%>0 then 8631
 8633 return
 8634 :
 8635 rem convert note (n%) => t%
