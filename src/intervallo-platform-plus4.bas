@@ -9,16 +9,17 @@
 8201 color 1,2,7
 8202 return
 8203 :
-8250 rem flash border red
-8251 c%=3:l%=2
-8252 goto 8350
-8300 rem flash border green
-8301 c%=6:l%=4
-8350 rem flash border with color c%,l%
-8351 color 4,c%,l%
-8352 gosub 8900
-8353 goto 8100
-8354 :
+8300 rem flash border red
+8301 c%=3:l%=2
+8302 goto 8403
+8303 :
+8400 rem flash border green
+8401 c%=6:l%=4
+8402 :
+8403 color 4,c%,l%
+8404 gosub 8900
+8405 goto 8100
+8406 :
 8500 rem initialize sound
 8501 poke 65297,7
 8502 dim ft(25)

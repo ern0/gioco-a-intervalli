@@ -103,12 +103,12 @@
 1340 if ix%=asc(k$)-65 then 1346
 1341 :
 1342 print "fail";
-1343 gosub 8250
+1343 gosub 8300
 1344 goto 1351
 1345 :
 1346 scre%=scre%+award%
 1347 print "okay";
-1348 gosub 8300
+1348 gosub 8400
 1349 goto 1351
 1350 :
 1351 shft%=1-shft%
