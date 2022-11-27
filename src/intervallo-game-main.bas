@@ -21,7 +21,7 @@
 1131 :
 1132 k$="select":kk$="12345q":gosub 8800
 1133 if k$<>"q" then 1200
-1134 print:print "byez"
+1134 print "quit":print:print "arrivederci!"
 1135 end
 1136 :
 1200 rem game init
@@ -48,68 +48,76 @@
 1261 :
 1262 rem game round loop
 1263 for round=1 to 10
-1264 try%=1
+1264 try%=1:tx%=1
 1265 :
-1266 gosub 8000
-1267 gosub 6300
-1268 :
-1269 print "difficulty level: ";lvl$
 1290 kys$="qr"
 1291 for i=0 to numiv%-1
 1292 v%=igame%(i)
 1293 k$=chr$(65+i)
 1294 kys$=kys$+k$
-1295 if i=0 or i=3 or i=6 or i=9 then print:print " ";
-1296 print k$;"-";nm$(v%-1);" ";
-1297 next i
-1298 print:print "   r-replay interval  q-quit game"
-1299 gosub 6200
-1320 :
-1321 ix%=int(rnd(0)*(numiv%))
-1322 theiv%=igame%(ix%)
-1323 lim%=int((24-theiv%-shft%)/2)
-1324 n1%=int(rnd(0)*lim%*2)+shft%
-1325 n2%=n1%+theiv%
-1326 print "round:";round;"of 10";
-1327 print " - score:";scre%
-1328 :
-1329 print "attempt:";try%;"- bonus:";
-1330 award%=11-try%
-1331 if award%<5 then award%=5
-1332 print award%;"points"
+1295 next i
+1296 :
+1297 ix%=int(rnd(0)*(numiv%))
+1298 theiv%=igame%(ix%)
+1299 lim%=int((24-theiv%-shft%)/2)
+1300 n1%=int(rnd(0)*lim%*2)+shft%
+1301 n2%=n1%+theiv%
+1302 :
+1303 gosub 8000
+1304 gosub 6300
+1305 print "difficulty level: ";lvl$
+1306 for i=0 to numiv%-1
+1307 v%=igame%(i)
+1308 k$=chr$(65+i)
+1309 if i=0 or i=3 or i=6 or i=9 then print:print " ";
+1310 print k$;"-";nm$(v%-1);" ";
+1311 next i
+1312 print:print "   r-replay interval  q-quit game"
+1313 gosub 6200
+1314 :
+1315 print "round:";round;"of 10";
+1316 print " - score:";scre%
+1317 :
+1318 print "attempt:";try%;"- bonus:";
+1319 award%=11-try%
+1320 if award%<5 then award%=5
+1321 print award%;"points"
+1322 :
+1323 gosub 8600
+1324 :
+1325 k$="interval":kk$=kys$:gosub 8800
+1326 if k$="q" then 1330
+1327 if k$="r" then 1334
+1328 goto 1340
+1329 :
+1330 print "quit";
+1331 gosub 8900
+1332 goto 1100
 1333 :
-1334 gosub 8600
-1335 :
-1336 k$="interval":kk$=kys$:gosub 8800
-1337 if k$="q" then 1341
-1338 if k$="r" then 1345
-1339 goto 1351
-1340 :
-1341 print "quit";
-1342 gosub 8900
-1343 goto 1100
-1344 :
-1345 try%=try%+1
-1346 print "retry";
-1347 print
-1348 goto 1329
-1349 :
+1334 try%=try%+1:tx%=tx%+1
+1335 print "retry";
+1336 if tx%>4 then tx%=1:goto 1303
+1337 print
+1338 goto 1315
+1339 :
+1340 if ix%=asc(k$)-65 then 1346
+1341 :
+1342 print "fail";
+1343 gosub 8250
+1344 goto 1351
+1345 :
+1346 scre%=scre%+award%
+1347 print "okay";
+1348 gosub 8300
+1349 goto 1351
 1350 :
-1351 if ix%=asc(k$)-65 then 1357
-1352 :
-1353 print "fail";
-1354 gosub 8250
-1355 goto 1362
-1356 :
-1357 scre%=scre%+award%
-1358 print "okay";
-1359 gosub 8300
-1360 goto 1362
-1361 :
-1362 shft%=1-shft%
-1363 next round
-1364 gosub 8000
-1365 gosub 6300
-1366 print "difficulty level: ";lvl$
-1367 print "final score:";scre%
-1368 end
+1351 shft%=1-shft%
+1352 next round
+1353 gosub 8000
+1354 gosub 6300
+1355 print "difficulty level: ";lvl$
+1356 print "final score:";scre%
+1357 if scre%=100 then print "perfetto, complimenti!"
+1358 print
+1359 k$="press a key":kk$="":gosub 8800
+1360 goto 1100

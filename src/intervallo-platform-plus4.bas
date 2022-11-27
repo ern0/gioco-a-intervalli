@@ -55,7 +55,7 @@
 8637 t%=1024-(111860.781/f)
 8638 return
 8639 :
-8800 rem get key (k$,k$$) => k$
+8800 rem get key (k$,kk$) => k$
 8801 print k$; ":  "; chr$(157);
 8802 k%=0
 8803 if k%=0 then print " "; chr$(157);
@@ -64,14 +64,15 @@
 8806 if k%>20 then k%=0
 8807 get k$
 8808 if k$="" then 8803
-8809 if asc(k$)<48 then 8805
-8830 if asc(k$)>90 then 8805
-8831 print k$; chr$(157);
-8832 for i=1 to len(kk$)
-8833 if mid$(kk$,i,1)=k$ then return
-8834 next i
-8835 goto 8802
-8836 :
+8809 if kk$="" then return
+8810 if asc(k$)<48 then 8805
+8811 if asc(k$)>90 then 8805
+8812 print k$; chr$(157);
+8813 for i=1 to len(kk$)
+8814 if mid$(kk$,i,1)=k$ then return
+8815 next i
+8816 goto 8802
+8817 :
 8900 rem wait for a half moment
 8901 for i=1 to 200
 8902 next i
