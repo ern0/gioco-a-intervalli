@@ -133,8 +133,12 @@ class Renumber:
         
         if found == "then" and not right_strip.isnumeric():
             return sub
-
-        old_num = int(right_strip)
+        
+        try:
+            old_num = int(right_strip)
+        except ValueError:
+            return sub
+            
         if old_num in self.renum:
             new_num = self.renum[old_num]
             right = right.replace(str(old_num), str(new_num))
