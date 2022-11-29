@@ -10,11 +10,11 @@
 8202 return
 8203 :
 8300 rem flash border red
-8301 c%=3:l%=2
+8301 c%=3 :l%=2
 8302 goto 8403
 8303 :
 8400 rem flash border green
-8401 c%=6:l%=4
+8401 c%=6 :l%=4
 8402 :
 8403 color 4,c%,l%
 8404 gosub 8900
@@ -22,9 +22,9 @@
 8406 :
 8500 rem initialize sound
 8501 poke 65297,7
-8502 dim ft(25)
+8502 dim ft(24)
 8503 restore 8550
-8504 for i=1 to 24
+8504 for i=0 to 23
 8505 read ft(i)
 8506 next i
 8507 return
@@ -38,9 +38,9 @@
 8556 :
 8600 rem play single or pair (n1%,n2%)
 8601 if n1%=-1 then 8603
-8602 n%=n1%:gosub 8635:t1%=t%
+8602 n%=n1% :gosub 8635 :t1%=t%
 8603 if n2%=-1 then 8606
-8604 n%=n2%:gosub 8635:t2%=t%
+8604 n%=n2% :gosub 8635 :t2%=t%
 8605 :
 8606 l%=30
 8607 if n1%=-1 or n2%=-1 then l%=20
