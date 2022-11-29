@@ -127,17 +127,17 @@
 1557 shft%=1-shft%
 1558 next round
 1559 :
-1560 rem game end, show score
-1561 gosub 8000
-1562 gosub 6300
-1563 print "game result" :print
-1564 print "difficulty level: ";lvl$
-1565 print "final score:";scre%;"/ 100"
-1566 print
-1567 if scre%=100 then print "perfetto, complimenti!" :goto 1572
-1568 if scre%>=90 then print "great, awesome" :goto 1572
-1569 if scre%>=60 then print "pretty good" :goto 1572
-1570 if scre%>=30 then print "you need some practice" :goto 1572
-1571 print "gg ;)"
-1572 gosub 6200
-1573 goto 1200
+1600 rem game end, show score
+1601 gosub 8000
+1602 gosub 6300
+1603 print "game result" :print
+1604 print "difficulty level: ";lvl$
+1605 print "final score:";scre%;"/ 100"
+1606 print
+1607 if scre%=100 then print "perfetto, complimenti!" :goto 1612
+1608 if scre%>=90 then print "great, awesome" :goto 1612
+1609 if scre%>=60 then print "pretty good" :goto 1612
+1610 if scre%>=30 then print "you need some practice" :goto 1612
+1611 print "gg ;)"
+1612 gosub 6200
+1613 goto 1200
