@@ -34,28 +34,27 @@
 1305 if k$="4" then numiv%=12 :setiv%=12 :lvl$="hard"
 1306 if k$="5" then numiv%=12 :setiv%=16 :lvl$="extreme"
 1307 :
-1308 shft%=0
-1309 scre%=0
-1310 l1% = -1
-1311 l2% = -1
-1312 :
-1313 for i=0 to setiv%-1
-1314 igame%(i)=iall%(i)
-1315 next i
-1316 for i=0 to numiv%-1
-1317 slct%=int(rnd(0)*(setiv%-i))+i
-1318 tmp%=igame%(i)
-1319 igame%(i)=igame%(slct%)
-1320 igame%(slct%)=tmp%
-1321 if i=0 then 1328
-1322 for j=i to 1 step -1
-1323 if igame%(j-1)<igame%(j) then 1328
-1324 tmp%=igame%(j)
-1325 igame%(j)=igame%(j-1)
-1326 igame%(j-1)=tmp%
-1327 next j
-1328 next i
-1329 :
+1308 scre%=0
+1309 l1% = -1
+1310 l2% = -1
+1311 :
+1312 for i=0 to setiv%-1
+1313 igame%(i)=iall%(i)
+1314 next i
+1315 for i=0 to numiv%-1
+1316 slct%=int(rnd(0)*(setiv%-i))+i
+1317 tmp%=igame%(i)
+1318 igame%(i)=igame%(slct%)
+1319 igame%(slct%)=tmp%
+1320 if i=0 then 1327
+1321 for j=i to 1 step -1
+1322 if igame%(j-1)<igame%(j) then 1327
+1323 tmp%=igame%(j)
+1324 igame%(j)=igame%(j-1)
+1325 igame%(j-1)=tmp%
+1326 next j
+1327 next i
+1328 :
 1400 rem game round loop
 1401 for round=1 to 10
 1402 try%=1 :tx%=1
@@ -70,8 +69,8 @@
 1500 rem select interval
 1501 ix%=int(rnd(0)*(numiv%))
 1502 theiv%=igame%(ix%)
-1503 lim%=int((24-theiv%-shft%)/2)
-1504 n1%=int(rnd(0)*lim%*2)+shft%
+1503 lim%=int((24-theiv%)/2)
+1504 n1%=int(rnd(0)*lim%*2)
 1505 n2%=n1%+theiv%
 1506 if n1%=l1% and n2%=l2% then 1560
 1507 l1%=n1% :l2%=n2%
@@ -124,9 +123,8 @@
 1554 gosub 8400
 1555 goto 1557
 1556 :
-1557 shft%=1-shft%
-1558 next round
-1559 :
+1557 next round
+1558 :
 1600 rem game end, show score
 1601 gosub 8000
 1602 gosub 6300
