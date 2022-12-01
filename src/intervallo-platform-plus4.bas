@@ -57,25 +57,39 @@
 8638 return
 8639 :
 8800 rem get key (k$,kk$) => k$
-8801 print k$; ":  "; chr$(157);
-8802 k%=0
-8803 if k%=0 then print " "; chr$(157);
-8804 if k%=11 then print chr$(185); chr$(157);
-8805 k%=k%+1
-8806 if k%>20 then k%=0
-8807 get k$
-8808 if k$="" then 8803
-8809 if kk$="" then return
-8810 if asc(k$)<48 then 8805
-8811 if asc(k$)>90 then 8805
-8812 print k$; chr$(157);
-8813 for i=1 to len(kk$)
-8814 if mid$(kk$,i,1)=k$ then return
-8815 next i
-8816 goto 8802
-8817 :
-8900 rem wait for a half moment
-8901 for i=1 to 200
-8902 next i
-8903 return
-8904 :
+8801 print k$;
+8802 if kk$="" then print "... ";
+8803 if kk$<>"" then print ":[ ]";chr$(157);chr$(157);
+8804 :
+8805 k%=0
+8806 if k%=0 then print chr$(185);chr$(157);
+8807 if k%=10 then print " ";chr$(157);
+8808 k%=k%+1 :if k%>18 then k%=0
+8809 :
+8810 get k$ :if k$="" then 8806
+8811 if kk$="" then return
+8812 if asc(k$)<48 then 8810
+8813 if asc(k$)>90 then 8810
+8814 print k$;
+8815 :
+8816 for i=1 to len(kk$)
+8817 if mid$(kk$,i,1)=k$ then 8824
+8818 next i
+8819 :
+8820 gosub 9000
+8821 print chr$(157);
+8822 goto 8805
+8823 :
+8824 gosub 9000
+8825 print chr$(157);chr$(157);"   ";chr$(157);chr$(157);
+8826 gosub 9000
+8827 return
+8828 :
+8900 rem wait for a full blink of eye
+8901 for i=1 to 250 :next i
+8902 return
+8903 :
+9000 rem wait for a half blink of eye
+9001 for i=1 to 150 :next i
+9002 return
+9003 :
