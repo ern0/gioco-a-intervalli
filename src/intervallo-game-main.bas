@@ -7,7 +7,7 @@
 1002 gosub 6100
 1003 gosub 8500
 1004 :
-1100 rem main screen
+1100 rem main screen - TODO: sound test
 1101 gosub 8000
 1102 gosub 6300
 1103 :
@@ -74,7 +74,7 @@
 1503 lim%=int((24-theiv%)/2)
 1504 n1%=int(rnd(0)*lim%*2)
 1505 n2%=n1%+theiv%
-1506 if n1%=l1% and n2%=l2% then 1616
+1506 if n1%=l1% and n2%=l2% then 1500
 1507 l1%=n1% :l2%=n2%
 1508 :
 1509 gosub 8000
@@ -107,8 +107,8 @@
 1536 goto 1100
 1537 :
 1538 if k$<>"r" then 1600
-1539 try%=try%+1 :tx%=tx%+1
-1540 print "retry";
+1539 print "retry";
+1540 try%=try%+1 :tx%=tx%+1
 1541 if tx%>4 then tx%=1 :goto 1509
 1542 print
 1543 goto 1521
@@ -133,17 +133,19 @@
 1617 rem game end, show score
 1618 gosub 8000
 1619 gosub 6300
-1620 print "game result" :print
-1621 print "difficulty level: ";lvl$
-1622 print "final score:";scre%;"/ 100"
-1623 print
-1624 if scre%=100 then print "perfetto, complimenti!" :goto 1629
-1625 if scre%>=90 then print "great, awesome" :goto 1629
-1626 if scre%>=60 then print "pretty good" :goto 1629
-1627 if scre%>=30 then print "you need some practice" :goto 1629
-1628 print "gg ;)"
-1629 gosub 8900
-1630 :
-1631 gosub 6200
-1632 k$="press any key to continue" :kk$="" :gosub 8800
-1633 goto 1100
+1620 :
+1621 gosub 8900 :print "game result" :print
+1622 gosub 8900 :print "difficulty level: ";
+1623 gosub 8900 :print lvl$
+1624 gosub 8900 :print "final score:";
+1625 gosub 8900 :print scre%;"/ 100" :print
+1626 gosub 8900
+1627 if scre%=100 then print "perfetto, complimenti!" :goto 1632
+1628 if scre%>=90 then print "great, awesome" :goto 1632
+1629 if scre%>=60 then print "pretty good" :goto 1632
+1630 if scre%>=30 then print "you need some practice" :goto 1632
+1631 print "gg :/"
+1632 gosub 8900
+1633 gosub 6200
+1634 k$="press any key to continue" :kk$="" :gosub 8800
+1635 goto 1100
