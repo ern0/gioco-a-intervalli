@@ -98,21 +98,31 @@
 1527 print award%;"points"
 1528 :
 1529 rem play interval, read answer
-1530 gosub 8600
-1531 k$="interval" :kk$=kys$ :gosub 8800
-1532 :
-1533 if k$<>"q" then 1538
-1534 print "quit";
-1535 gosub 8900
-1536 goto 1100
-1537 :
-1538 if k$<>"r" then 1600
-1539 print "retry";
-1540 try%=try%+1 :tx%=tx%+1
-1541 if tx%>4 then tx%=1 :goto 1509
-1542 print
-1543 goto 1521
-1544 :
+1530 if try%<3 then gosub 8600 :goto 1541
+1531 s1%=n1% :s2%=n2%
+1532 wy%=int(rnd(1)*2)
+1533 if wy%=0 then n2%=-1
+1534 if wy%=1 then n1%=-1
+1535 gosub 8600
+1536 if wy%=0 then n1%=-1 :n2%=s2%
+1537 if wy%=1 then n1%=s1% :n2%=-1
+1538 gosub 8600
+1539 n1%=s1% :n2%=s2%
+1540 :
+1541 k$="interval" :kk$=kys$ :gosub 8800
+1542 :
+1543 if k$<>"q" then 1548
+1544 print "quit";
+1545 gosub 8900
+1546 goto 1100
+1547 :
+1548 if k$<>"r" then 1600
+1549 print "retry";
+1550 try%=try%+1 :tx%=tx%+1
+1551 if tx%>4 then tx%=1 :goto 1509
+1552 print
+1553 goto 1521
+1554 :
 1600 rem evaluate answer
 1601 v%=asc(k$)-65
 1602 print nm$(igame%(v%)-1);

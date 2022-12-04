@@ -38,24 +38,24 @@
 8556 :
 8600 rem play single or pair (n1%,n2%)
 8601 if n1%=-1 then 8603
-8602 n%=n1% :gosub 8635 :t1%=t%
+8602 n%=n1% :gosub 8615 :t1%=t%
 8603 if n2%=-1 then 8606
-8604 n%=n2% :gosub 8635 :t2%=t%
+8604 n%=n2% :gosub 8615 :t2%=t%
 8605 :
 8606 l%=30
 8607 if n1%=-1 or n2%=-1 then l%=20
 8608 if n1%<>-1 then sound 1,t1%,l%
 8609 if n2%<>-1 then sound 2,t2%,l%
-8630 :
-8631 t%=peek(65297)/16
-8632 if t%>0 then 8631
-8633 return
-8634 :
-8635 rem convert note (n%) => t%
-8636 f=ft(n%)
-8637 t%=1024-(111860.781/f)
-8638 return
-8639 :
+8610 :
+8611 t%=peek(65297)/16
+8612 if t%>0 then 8611
+8613 return
+8614 :
+8615 rem convert note (n%) => t%
+8616 f=ft(n%)
+8617 t%=1024-(111860.781/f)
+8618 return
+8619 :
 8800 rem get key (k$,kk$) => k$
 8801 print k$;
 8802 if kk$="" then print "... ";
