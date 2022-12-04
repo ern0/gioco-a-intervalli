@@ -5,7 +5,7 @@
 ## Overview
 
 Description:
-- Music intervall guess game,
+- Music interval guess game,
 - written in Basic,
 - for C64/Plus4/C128 and
 - maybe other platforms.
