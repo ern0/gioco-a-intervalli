@@ -117,35 +117,41 @@
 1601 v%=asc(k$)-65
 1602 print nm$(igame%(v%)-1);
 1603 gosub 8900
-1604 if ix%=v% then 1611
+1604 if ix%=v% then 1616
 1605 :
-1606 print " - fail";
+1606 print " - wrong"
 1607 gosub 8300
-1608 rem ---- todo: show the right answer ----
-1609 goto 1615
-1610 :
-1611 scre%=scre%+award%
-1612 print " - okay";
-1613 gosub 8400
-1614 :
-1615 next round
-1616 :
-1617 rem game end, show score
-1618 gosub 8000
-1619 gosub 6300
+1608 gosub 8900
+1609 print "the correct answer is: ";
+1610 gosub 8900
+1611 print nm$(igame%(ix%)-1) :print
+1612 gosub 8600
+1613 gosub 6400
+1614 goto 1621
+1615 :
+1616 scre%=scre%+award%
+1617 print " - correct"
+1618 gosub 9000
+1619 gosub 8400
 1620 :
-1621 gosub 8900 :print "game result" :print
-1622 gosub 8900 :print "difficulty level: ";
-1623 gosub 8900 :print lvl$
-1624 gosub 8900 :print "final score:";
-1625 gosub 8900 :print scre%;"/ 100" :print
-1626 gosub 8900
-1627 if scre%=100 then print "perfetto, complimenti!" :goto 1632
-1628 if scre%>=90 then print "great, awesome" :goto 1632
-1629 if scre%>=60 then print "pretty good" :goto 1632
-1630 if scre%>=30 then print "you need some practice" :goto 1632
-1631 print "gg :/"
+1621 next round
+1622 :
+1623 rem game end, show score
+1624 gosub 8000
+1625 gosub 6300
+1626 :
+1627 gosub 8900 :print "game result" :print
+1628 gosub 8900 :print "difficulty level: ";
+1629 gosub 8900 :print lvl$
+1630 gosub 8900 :print "final score:";
+1631 gosub 8900 :print scre%;"/ 100" :print
 1632 gosub 8900
-1633 gosub 6200
-1634 k$="press any key to continue" :kk$="" :gosub 8800
-1635 goto 1100
+1633 if scre%=100 then print "perfetto, complimenti!" :goto 1638
+1634 if scre%>=90 then print "great, awesome" :goto 1638
+1635 if scre%>=60 then print "pretty good" :goto 1638
+1636 if scre%>=30 then print "you need some practice" :goto 1638
+1637 print "gg :/"
+1638 gosub 8900
+1639 gosub 6200
+1640 gosub 6400
+1641 goto 1100
