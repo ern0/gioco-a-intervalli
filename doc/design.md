@@ -77,7 +77,7 @@ it may require extra work to adopt
 even the common part.
 Also, 
 the program should not use
-Commodore Basic-specific tricks.
+Commodore Basic specific tricks.
 
 ## Development Process
 
