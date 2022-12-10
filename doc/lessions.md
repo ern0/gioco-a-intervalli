@@ -1,6 +1,8 @@
 # Intervallo - What I learned from developing a simple game in Basic, after 35 years
 
-## The motivation
+## Introduction
+
+### The motivation
 
 The Hungarian Commodore Plus/4 FB-group 
 has announced a competition for 
@@ -77,7 +79,7 @@ professional software developer.
 Adding the two together is 
 certainly not without lessons.
 
-## The game
+### The game
 
 To put it short and immodestly:
 I'm the famous ancient musician
@@ -137,7 +139,7 @@ to the requirement list:
 - the computer should be able to 
   play an interval somehow. 
 
-## The design
+### The design
 
 First of all, I wrote the design document, 
 in which I specified the platform, the gameplay, 
@@ -185,16 +187,16 @@ I was using my favourite text editor,
 I had only one difficulty: 
 text editors do not support line numbering.
 
-# Lessons Learnt
+## Lessons Learnt
 
-## Avoid onboard
+### Avoid onboard
 
 Lack of: VCS, editor, quick save
 
-## Renumber
+### Renumber
 
 vs Mumps, labels
 
-## Basic is
+### Basic is
 
 266 LOC
