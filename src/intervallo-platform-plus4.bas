@@ -37,54 +37,54 @@
 8555 data 554.4,587.36,622.24,659.28
 8556 :
 8600 rem play single or pair (n1%,n2%)
-8601 if n1%=-1 then 8603
-8602 n%=n1% :gosub 8615 :t1%=t%
-8603 if n2%=-1 then 8606
-8604 n%=n2% :gosub 8615 :t2%=t%
-8605 :
-8606 l%=30
-8607 if n1%=-1 or n2%=-1 then l%=20
-8608 if n1%<>-1 then sound 1,t1%,l%
-8609 if n2%<>-1 then sound 2,t2%,l%
-8610 :
-8611 t%=peek(65297)/16
-8612 if t%>0 then 8611
-8613 return
-8614 :
-8615 rem convert note (n%) => t%
-8616 f=ft(n%)
-8617 t%=1024-(111860.781/f)
-8618 return
-8619 :
+8601 l%=30 :goto 8603
+8602 l%=15
+8603 if n1%=-1 then 8605
+8604 n%=n1% :gosub 8616 :t1%=t%
+8605 if n2%=-1 then 8606
+8606 n%=n2% :gosub 8616 :t2%=t%
+8607 :
+8608 if n1%=-1 or n2%=-1 then l%=20
+8609 if n1%<>-1 then sound 1,t1%,l%
+8610 if n2%<>-1 then sound 2,t2%,l%
+8611 :
+8612 t%=peek(65297)/16
+8613 if t%>0 then 8612
+8614 return
+8615 :
+8616 rem convert note (n%) => t%
+8617 f=ft(n%)
+8618 t%=1024-(111860.781/f)
+8619 return
+8620 :
 8800 rem get key (k$,kk$) => k$
 8801 print k$;
-8802 if kk$="" then print "... ";
-8803 if kk$<>"" then print ":[ ]";chr$(157);chr$(157);
-8804 :
-8805 k%=0
-8806 if k%=0 then print chr$(185);chr$(157);
-8807 if k%=10 then print " ";chr$(157);
-8808 k%=k%+1 :if k%>18 then k%=0
-8809 :
-8810 get k$ :if k$="" then 8806
-8811 if kk$="" then return
-8812 if asc(k$)<48 then 8810
-8813 if asc(k$)>90 then 8810
-8814 print k$;
-8815 :
-8816 for i=1 to len(kk$)
-8817 if mid$(kk$,i,1)=k$ then 8824
-8818 next i
-8819 :
-8820 gosub 9000
-8821 print chr$(157);
-8822 goto 8805
-8823 :
-8824 gosub 9000
-8825 print chr$(157);chr$(157);"   ";chr$(157);chr$(157);
-8826 gosub 9000
-8827 return
-8828 :
+8802 if kk$<>"" then print ":[ ]";chr$(157);chr$(157);
+8803 :
+8804 k%=0
+8805 if k%=0 then print chr$(185);chr$(157);
+8806 if k%=10 then print " ";chr$(157);
+8807 k%=k%+1 :if k%>18 then k%=0
+8808 :
+8809 get k$ :if k$="" then 8805
+8810 if kk$="" then return
+8811 if asc(k$)<48 then 8809
+8812 if asc(k$)>90 then 8809
+8813 print k$;
+8814 :
+8815 for i=1 to len(kk$)
+8816 if mid$(kk$,i,1)=k$ then 8823
+8817 next i
+8818 :
+8819 gosub 9000
+8820 print chr$(157);
+8821 goto 8804
+8822 :
+8823 gosub 9000
+8824 print chr$(157);chr$(157);"   ";chr$(157);chr$(157);
+8825 gosub 9000
+8826 return
+8827 :
 8900 rem wait for a full blink of eye
 8901 for i=1 to 250 :next i
 8902 return

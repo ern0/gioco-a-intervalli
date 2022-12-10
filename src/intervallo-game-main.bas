@@ -13,61 +13,84 @@
 1103 :
 1201 print "difficulty level:"
 1202 print
-1203 print " 1: rookie (2 of basic-7 set)"
-1204 print " 2: easy (3 of basic-7)"
-1205 print " 3: medium (any of basic-7)"
-1206 print " 4: hard (any of full-12)"
-1207 print " q: quit game"
-1208 print
-1209 :
-1210 k$="select" :kk$="12345q" :gosub 8800
-1211 if k$<>"q" then 1300
-1212 print "quit" :print
-1213 gosub 8900
-1214 print "arrivederci!"
-1215 end
-1216 :
-1300 rem game init
-1301 numiv%=0
-1302 if k$="1" then numiv%=2 :setiv%=7 :lvl$="rookie"
-1303 if k$="2" then numiv%=3 :setiv%=7 :lvl$="easy"
-1304 if k$="3" then numiv%=7 :setiv%=7 :lvl$="medium"
-1305 if k$="4" then numiv%=12 :setiv%=12 :lvl$="hard"
-1306 if k$="5" then numiv%=12 :setiv%=16 :lvl$="extreme"
-1307 print lvl$
-1308 :
-1309 scre%=0
-1310 l1% = -1
-1311 l2% = -1
-1312 :
-1313 for i=0 to setiv%-1
-1314 igame%(i)=iall%(i)
-1315 next i
-1316 for i=0 to numiv%-1
-1317 slct%=int(rnd(0)*(setiv%-i))+i
-1318 tmp%=igame%(i)
-1319 igame%(i)=igame%(slct%)
-1320 igame%(slct%)=tmp%
-1321 if i=0 then 1328
-1322 for j=i to 1 step -1
-1323 if igame%(j-1)<igame%(j) then 1328
-1324 tmp%=igame%(j)
-1325 igame%(j)=igame%(j-1)
-1326 igame%(j-1)=tmp%
-1327 next j
-1328 next i
-1329 :
-1400 rem game round loop
-1401 for round=1 to 10
-1402 try%=1 :tx%=1
-1403 :
-1404 kys$="qr"
-1405 for i=0 to numiv%-1
-1406 v%=igame%(i)
-1407 k$=chr$(65+i)
-1408 kys$=kys$+k$
-1409 next i
-1410 :
+1203 print " 0: sound test"
+1204 print " 1: rookie (2 of basic-7 set)"
+1205 print " 2: easy (3 of basic-7)"
+1206 print " 3: medium (any of basic-7)"
+1207 print " 4: hard (any of full-12)"
+1208 print " q: quit game"
+1209 print
+1210 :
+1211 k$="select" :kk$="012345q" :gosub 8800
+1212 if k$="0" then 1300
+1213 if k$<>"q" then 1400
+1214 print "quit";
+1215 gosub 8900
+1216 print " - arrivederci!"
+1217 end
+1218 :
+1300 rem sound test
+1301 print "sound test"
+1302 gosub 8900
+1303 gosub 8000
+1304 gosub 6300
+1305 print "sound test"
+1306 print
+1307 print "press any key to play test sound"
+1308 print " or [q] for quit sound test... ";
+1309 st%=1
+1310 k$="" :kk$="" :gosub 8800
+1311 if k$="q" then 1100
+1312 if st%=1 then n1%=9
+1313 if st%=2 then n1%=4
+1314 if st%=3 then n1%=9
+1315 if st%=4 then n1%=2
+1316 n2%=n1%+7
+1317 if st%=1 or st%=3 then gosub 8602
+1318 if st%=2 or st%=4 then gosub 8600
+1319 st%=st%+1 :if st%=5 then st%=1
+1320 goto 1310
+1321 :
+1400 rem game init
+1401 numiv%=0
+1402 if k$="1" then numiv%=2 :setiv%=7 :lvl$="rookie"
+1403 if k$="2" then numiv%=3 :setiv%=7 :lvl$="easy"
+1404 if k$="3" then numiv%=7 :setiv%=7 :lvl$="medium"
+1405 if k$="4" then numiv%=12 :setiv%=12 :lvl$="hard"
+1406 if k$="5" then numiv%=12 :setiv%=16 :lvl$="extreme"
+1407 print lvl$
+1408 :
+1409 scre%=0
+1410 l1%=-1 :l2%=-1
+1411 :
+1412 for i=0 to setiv%-1
+1413 igame%(i)=iall%(i)
+1414 next i
+1415 for i=0 to numiv%-1
+1416 slct%=int(rnd(0)*(setiv%-i))+i
+1417 tmp%=igame%(i)
+1418 igame%(i)=igame%(slct%)
+1419 igame%(slct%)=tmp%
+1420 if i=0 then 1427
+1421 for j=i to 1 step -1
+1422 if igame%(j-1)<igame%(j) then 1427
+1423 tmp%=igame%(j)
+1424 igame%(j)=igame%(j-1)
+1425 igame%(j-1)=tmp%
+1426 next j
+1427 next i
+1428 :
+1429 rem game round loop
+1430 for round=1 to 10
+1431 try%=1 :tx%=1
+1432 :
+1433 kys$="qr"
+1434 for i=0 to numiv%-1
+1435 v%=igame%(i)
+1436 k$=chr$(65+i)
+1437 kys$=kys$+k$
+1438 next i
+1439 :
 1500 rem select interval
 1501 ix%=int(rnd(0)*(numiv%))
 1502 theiv%=igame%(ix%)

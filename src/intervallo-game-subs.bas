@@ -48,6 +48,6 @@
 6305 return
 6306 :
 6400 rem press any key to continue
-6401 k$="press any key to continue" :kk$="" :gosub 8800
+6401 k$="press any key to continue... " :kk$="" :gosub 8800
 6402 return
 6403 :

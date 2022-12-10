@@ -39,7 +39,7 @@ Assembly programming,
 made two music editors, 
 and created  
 some songs with them, 
-which made me kinda famous 
+which made me kinda' famous 
 in the early C16/Plus4 scene.
 
 It has been *35 years* since 
@@ -51,13 +51,13 @@ for the competition? After 35 years?**
 Of course, 
 the project smells of nostalgia, 
 it would be a lie to deny it. 
-Time travel to my teenage years, 
+*Time travel to my teenage years*, 
 no doubt.
 
 But there will be lessons learned. 
 Decades have passed since then, 
-which - 
-in this profession, 
+which 
+- in this profession, 
 where a new era comes every 
 few years - 
 is a very, very long time.
@@ -76,5 +76,45 @@ enthusiastic autodidact
 slightly-better-than-average 
 professional software developer.
 
+Adding the two together is 
+certainly not without lessons.
+
 ### Manifesto
 
+To put it short and immodestly:
+I'm the famous ancient musician
+of the Plus/4 platform, 
+with decades of professional 
+development experience,
+who starts writing a game in Basic.
+
+Great, but what kind of game?
+
+
+> **Me**: - Bro, pls help me translating something. <br/>
+ Despite that the lingua of the music is <br/>
+    Italian, and I know some terms, like <br/>
+    piano, forte, parlando etc., I don't <br/>
+    know the name of "pitch distance". <br/>
+    Probably, it's "intervallo", but maybe <br/>
+    this is not a proper translation. <br/>
+    Second, Quart, Quint and Octave, each <br/>
+    is "intervallo". I hope, you know music <br/>
+    as deep that you can tell the proper <br/>
+    term, in Italian. <br/>
+
+**Luca:** *Yes, it's the intervallo.
+And the pitch is Altezza.*
+
+
+Let's specify requirements:
+- The game should be written in pure Basic,
+  so it can easily be ported to other machines.
+	Commodore Basic V2.0 seems a good choice,
+	it's quite simple and standard, and
+	also Commodore 64 is an obvious target.
+- The game should not rely on 
+  machine-specific features, 
+	should not contain graphics, 
+	just a plain console.
+- 
