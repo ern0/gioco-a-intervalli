@@ -184,19 +184,140 @@ The **gameplay** was cleaned up during development:
 The **development** tools were given,
 I was using my favourite text editor, 
 *petcat* and *VICE*,
-I had only one difficulty: 
+I have had only one difficulty: 
 text editors do not support line numbering.
 
 ## Lessons Learnt
 
+Below is a list of the experiences 
+I have had during the development.
+They are listed in random order.
+
 ### Avoid onboard
 
-Lack of: VCS, editor, quick save
+I'm not afraid of difficulties.
+I never had a floppy drive 
+for my Commodore 16,
+I was using tape.
+For a long time 
+I only had B/W TV set,
+at least, it had good sound.
+When I was 17, 
+I took a photographer and a hardware engineer 
+friend of mine and 
+we put together a memory expansion 
+(the photographer took us to a 
+professional print shop 
+where we used 
+a room-sized camera 
+to make the film for the PCB,
+from the matrix-printed design).
+
+So I'm not a snowflake.
+
+But it was not an option to 
+develop on-board. Nor on emulator.
+Things would heve been really missing:
+- full screen editor instead of
+  line-based,
+- frequent and quick save,
+- version control,
+- quick internet access.
+
+For those who don't know 
+(applies to both C16/Plus4 and C64 machines),
+here's how you write a Basic program:
+- When you turn on the machine, 
+  the Basic system starts within a second.
+- When you type a command, e.g. 
+  `PRINT 5*5`, the machine executes 
+  it immediately and prints `25`.
+- If you start a line with a number,
+  then continue it with a command
+  (in this case, it's called *instruction*),
+  it will not be executed, 
+  but will be stored as a program line 
+  with the given line number.
+  The order of program lines is described
+  by line numbers.
+- If you want to see the whole program 
+  or just a part of it, you
+  can use the `LIST` command. 
+  You can also specify a line number region,
+  `LIST 10-30` or `LIST 1000-` or `LIST -200`.
+- If you type a line with line number, but 
+  the given line number already existed, 
+  it overwrites the previous one. 
+  A big advantage of Commodore machines is that 
+  you can go back on the screen and 
+  edit the line you just typed or listed. 
+  If the line number remained, 
+  the old line replaced with the one entered,
+  so you can feel that you just edited it.
+- You can delete a line by typing its line number.
+
+Practically, 
+writing a program means goes that 
+you add lines by typing lines with
+line numbers.
+If you want to insert a line 
+between two existing one, you
+can do it by giving a line number,
+which is between.
+That is why you see that 
+line numbering of each Basic program 
+starts at 10 and increases by 10:
+you have the possibility to insert
+additional lines between existing ones.
+
+To be more precise: you have 9 attempts,
+e.g. to insert a new line after the first one,
+which's line number is 10,
+but before the second one with
+line number of 20,
+you can choose from 11-19.
+You have to design your Basic program
+before you start typing, because it's
+a nightmare if you want to insert
+more lines. On Commodore 64.
+
+On C16/Plus4, 
+if you get stuck with line numbers,
+you can use the `RENUMBER` command,
+which recalculates the line numbers
+and, of course, adjusts references to them.
+It can even insert a "line number space"
+to a specified point.
+
+So, that's what I did not wanted,
+just write the program with a
+full screen editor, and
+don't mind with line numbers.
+
+I was wrong.
 
 ### Renumber
 
+Even in the full-screen editor,
+writing a Basic program requires to write
+line numbers as well.
+
+---
+
 vs Mumps, labels
 
-### Basic is
+### Basic is dense
 
 266 LOC
+
+### Basic is framework
+
+only langugage
+not too far from asm
+
+
+### Basic is EUP
+
+simple notation, e.g. no "=="
+novice excel users fn()
+
