@@ -1,3 +1,0 @@
-# Intervallo
-
-the game
