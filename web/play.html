@@ -15,38 +15,51 @@ body {
 	padding: 0;
 	overflow: hidden;
 }
-.footer {
+#footer {
+	display: none;
 	text-align: center;
-	padding-top: 4px;
+	margin-top: 4px;
 }
-.footer, a, a:hover, a:active, a:visited {
+#footer, a, a:hover, a:active, a:visited {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 12pt;
 	color: #8888aa;
 }
 #output, .hide {
 	display: none;
+	width: 768px;
+	height: 576px;
+}
+
+#emulator {
+	width: 768px; 
+	height: 576px; 
+	margin: auto;
 }
 
 	</style>
 </head>
 
 <body>
-		<div class="emscripten hide" id="status" style="display: none;"> &nbsp; </div>							
-		<div class="emscripten hide">
-			<progress value="0" max="100" id="progress" hidden=1></progress>
-		</div>
-		<div id="emulator" class="emscripten_border" style="width: 768px; height: 576px; margin: auto; ">
-			<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-		</div>
-		<textarea id="output" rows="8" style="width: 768px; display: none; "> </textarea>
+	<div class="emscripten hide" id="status"> &nbsp; </div>							
+	<div class="emscripten hide">	<progress value="0" max="100" id="progress" hidden="1"> </progress> </div>
+	<textarea class="hide" id="output" rows="8"> </textarea>
 
-		<script type="text/javascript" src="script.js?v=20"></script>
+	<div id="startup">
+		<button type="button" onclick="startup();"> play </button>	
+	</div>
 
-		<div class="footer"> 
-			<a href="https://github.com/ern0/intervallo"> Source: Intervallo on GitHub </a>
-			<a href="https://github.com/calmopyrin/yapesdl"> Emulator: Yape/SDL 0.71.1 </a>
-		</div>
+	<div id="emulator">
+		<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+
+	<div id="footer"> 
+		download / source: <a href="https://github.com/ern0/intervallo">Intervallo on GitHub</a>
+		&nbsp;&ndash;&nbsp;
+		emulator: <a href="https://github.com/calmopyrin/yapesdl">Yape/SDL 0.71.1</a>
+	</div>
 
 </body>
 

@@ -1,39 +1,37 @@
-	var arguments = ['intervallo-plus4.prg', 'intervallo-plus4.prg'];
-	
 var Module = {
 
-	arguments: arguments, preRun: [], postRun: [], print: 
+  arguments: ['intervallo-plus4.prg', 'intervallo-plus4.prg'], preRun: [], postRun: [], print: 
 
-	(function () { 
-		var element = document.getElementById('output'); 
-		if (element) element.value = ''; 
-		return function (text) { 
-			if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' '); 
-			console.log(text); 
-			if (element) {
-				element.value += text + '\n'; 
-				element.scrollTop = element.scrollHeight 
-			} 
-		} 
-	})(), 
+  (function () { 
+    var element = document.getElementById('output'); 
+    if (element) element.value = ''; 
+    return function (text) { 
+      if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' '); 
+      console.log(text); 
+      if (element) {
+        element.value += text + '\n'; 
+        element.scrollTop = element.scrollHeight 
+      } 
+    } 
+  })(), 
 
-	printErr: function (text) { 
-		if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' '); 
-		console.error(text);
-	}, 
+  printErr: function (text) { 
+    if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' '); 
+    console.error(text);
+  }, 
 
-	canvas: (function () { 
-		var canvas = document.getElementById('canvas'); 
-		console.log("the canvas",canvas);
-		canvas.addEventListener('webglcontextlost', 
-			function (e) {
-				alert('WebGL context lost. You will need to reload the page.'); 
-				e.preventDefault() 
-			}, false); 
-			return canvas; 
-	})(), 
+  canvas: (function () { 
+    var canvas = document.getElementById('canvas'); 
+    console.log("the canvas",canvas);
+    canvas.addEventListener('webglcontextlost', 
+      function (e) {
+        alert('WebGL context lost. You will need to reload the page.'); 
+        e.preventDefault() 
+      }, false); 
+      return canvas; 
+  })(), 
   
-	setStatus: function (text) { 
+  setStatus: function (text) { 
     if (!Module.setStatus.last) Module.setStatus.last = {
       time: Date.now(), text: '' 
     }; 
@@ -41,16 +39,17 @@ var Module = {
     var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/); 
     var now = Date.now(); 
     if (m && now - Date.now() < 30) return; 
-	}, 
+  }, 
 
-	totalDependencies: 0, 
+  totalDependencies: 0, 
 
-	monitorRunDependencies: function (left) {
+  monitorRunDependencies: function (left) {
     this.totalDependencies = Math.max(this.totalDependencies, left); 
-    Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.') 
-	} 
+    Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+    document.getElementById("footer").style.display = "block";
+  } 
 }; 
-	
+  
 Module.setStatus('Downloading...'); 
 
 window.onerror = function (event) {
@@ -73,6 +72,14 @@ window.onerror = function (event) {
   xhr.send(null) 
 })(); 
 
-var script = document.createElement('script'); 
-script.src = 'YapeSDL.js'; 
-document.body.appendChild(script);
+
+function startup() {
+ 
+  var startup = document.getElementById("startup");
+  startup.style.display = "none";
+
+  var script = document.createElement('script'); 
+  script.src = 'YapeSDL.js'; 
+  document.body.appendChild(script);
+
+}
