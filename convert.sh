@@ -37,7 +37,7 @@ main() {
 	./renumber.py src/*.bas
 	
 	concatenate plus4 3
-	concatenate c64 2
+	#### concatenate c64 2
 
 	autodoc main
 	autodoc subs

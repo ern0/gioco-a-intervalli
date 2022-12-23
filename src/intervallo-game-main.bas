@@ -164,7 +164,7 @@
 1615 :
 1616 scre%=scre%+award%
 1617 print " - correct"
-1618 gosub 9000
+1618 gosub 8900
 1619 gosub 8400
 1620 :
 1621 next round

@@ -41,7 +41,7 @@
 8602 l%=15
 8603 if n1%=-1 then 8605
 8604 n%=n1% :gosub 8616 :t1%=t%
-8605 if n2%=-1 then 8606
+8605 if n2%=-1 then 8607
 8606 n%=n2% :gosub 8616 :t2%=t%
 8607 :
 8608 if n1%=-1 or n2%=-1 then l%=20
@@ -90,6 +90,6 @@
 8902 return
 8903 :
 9000 rem wait for a half blink of eye
-9001 for i=1 to 150 :next i
+9001 for i=1 to 100 :next i
 9002 return
 9003 :
