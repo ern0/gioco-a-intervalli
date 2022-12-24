@@ -42,8 +42,8 @@
 6203 :
 6300 rem print header
 6301 gosub 6200
-6302 print " intervallo plus/4 - the interval game"
-6303 print "  https://github.com/ern0/intervallo"
+6302 print "  intervallo - minimalistic music game"
+6303 print "   https://github.com/ern0/intervallo"
 6304 gosub 6200
 6305 return
 6306 :
