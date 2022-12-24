@@ -7,7 +7,7 @@
 1002 gosub 6100
 1003 gosub 8500
 1004 :
-1100 rem main screen
+1100 rem main screen - TODO: sound test
 1101 gosub 8000
 1102 gosub 6300
 1103 :
