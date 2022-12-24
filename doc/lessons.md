@@ -12,7 +12,7 @@ basic, mixed and pure machine code.
 I was already planning to 
 make something 
 for my 
-[*home platform*](http://plus4world.powweb.com/members/ern0), 
+[*home platform*](https://plus4world.powweb.com/members/ern0), 
 so I thought I'd enter.
 
 I knew I wouldn't have enough time 
@@ -30,9 +30,9 @@ first in Basic:
 
 - Dave's Little Car (cca. 1985, lost),
 - [Music Helicopter 
-  (1986)](http://plus4world.powweb.com/software/Music_Helicopter) and
+  (1986)](https://plus4world.powweb.com/software/Music_Helicopter) and
 - [Asteroid (1987,
-  with Ákos Nausch)](http://plus4world.powweb.com/software/Asteroid)
+  with Ákos Nausch)](https://plus4world.powweb.com/software/Asteroid)
 
 Later I switched to 
 Assembly programming,
@@ -304,6 +304,8 @@ line numbers as well.
 
 ---
 
+TODO: continue the story. Some notes below.
+
 vs Mumps, labels
 
 ### Basic is dense
@@ -320,4 +322,3 @@ not too far from asm
 
 simple notation, e.g. no "=="
 novice excel users fn()
-
