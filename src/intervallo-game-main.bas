@@ -1,4 +1,4 @@
-0 rem [ gioco a intervalli        ]
+0 rem [ intervallo plus/4         ]
 1 rem [   a game written in basic ]
 2 rem [   by ern0/abaddon in 2022 ]
 3 :
