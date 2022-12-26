@@ -652,7 +652,8 @@ and asks the input from the user.
 ```
 1211 input "select"; k$
 ```
-Okay, `INPUT` is lame, the actual code is:
+Okay, `INPUT` is lame, the actual code is
+calling a custom keyboard reader subroutine:
 ```
 1211 k$="select" :kk$="012345q" :gosub 8800
 ```
@@ -668,8 +669,63 @@ no rituals, no meta stuff, no ceremonies.
 No bloated GUIs.
 
 
-### Terminal magic
+### Terminal apps
 
+A program that can only be used with a mouse
+is a usability disaster.
+
+At the corner bakery,
+where customers need to be served quickly,
+especially in the morning rush,
+the cashier program is character-based.
+If an item needs to be corrected,
+the clerk presses a few buttons and it's done.
+Selecting a payment method is
+also a matter of two button presses.
+An inexperienced user, like an average clerk,
+with a mouse - would die.
+
+A good characeter UI is clear,
+as user, you can always know
+what options are available.
+You don't have to guess
+which icon the menu is hiding behind,
+where to tap to do certain thing,
+how to go back.
+If you learn the keystrokes
+for each situation,
+you can go pretty quickly.
+
+Of course,
+not every genre is suited to a character-based UI,
+but where the workflow follows a strict path and
+there are only few, simple choices,
+it's ideal.
+
+I hope I managed to create a good UI. 
+The only difficulty is that 
+you don't have to use numbers 
+to get the answer during the game. 
+For one thing, 
+there would be no clear solution to 
+the problem of assigning which pitch to which number. 
+On the other hand, there are, 
+although rarely at the same time, 
+more than ten intervals in the game.
+So, I decided to use letters,
+wihtout holes, always re-arranged 
+according to the actual interval set.
+
+I've created a custom input routine,
+with custom blinking cursor,
+which first displays the key pressed 
+for a short time,
+then replaces it with what it means.
+
+A nice full-screen UI would be better,
+but the aim was 
+to make porting to other platforms 
+as easy as possible.
 
 
 ### BASIC is framework
