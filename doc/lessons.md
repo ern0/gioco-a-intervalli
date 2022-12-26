@@ -1,6 +1,8 @@
 # Intervallo - What I learned from developing a simple game in Basic, after 35 years
 
+
 ## Introduction
+
 
 ### The motivation
 
@@ -75,6 +77,7 @@ professional software developer.
 Adding the two together is
 certainly not without lessons.
 
+
 ### The game
 
 To put it short and immodestly:
@@ -135,6 +138,7 @@ to the requirement list:
 - the computer should be able to
   play an interval somehow.
 
+
 ### The design
 
 First of all, I wrote the design document,
@@ -183,13 +187,15 @@ I was using my favourite text editor,
 I have had only one difficulty:
 text editors do not support line numbering.
 
+
 ## Lessons Learnt
 
 Below is a list of the experiences
 I have had during the development.
 They are listed in random order.
 
-### MUMPS
+
+### The reference language: MUMPS
 
 I happen to know another language very well,
 which is very similar to BASIC:
@@ -221,7 +227,8 @@ So, where it makes sense,
 I'll explain how MUMPS solves
 the given issue.
 
-### Avoid onboard
+
+### Avoid onboard development
 
 I'm not afraid of difficulties.
 I never had a floppy drive
@@ -325,21 +332,23 @@ don't mind with line numbers.
 
 I was wrong.
 
-### Renumber
+
+### The renumber problem
 
 Even in the full-screen editor,
 writing a BASIC program requires to write
 line numbers as well.
 But the program is not written
 starting at the first line and
-stopping at the last.
+finishing at the last.
 So there comes a point
 when you have to renumber the lines,
 to make room for inserting new ones.
 
 Of course, there's no text editor
-with renumber functionality.
-So, I had to write a renumber tool - you can find it
+with renumber functionality
+or other support of BASIC.
+So, I had to write a *Renumber Tool* - you can find it
 in the repository: `renumber.py`.
 
 I haven't written a complete
@@ -359,7 +368,7 @@ using line numbers:
   if you just insert one line,
   then renumber,
   lot of lines will "change".
-- In certain cases, the renumber tool
+- In certain cases, the Renumber Tool
   could not figure out the situation,
   and silently fails, creating bad references.
   It can lead to mystic runtime errors.
@@ -369,16 +378,17 @@ the development was more comfortable
 than without it.
 But it was not really comfortable.
 
+
 ### Line numbers vs labels
 
-Writing the renumber tool,
+Writing the Renumber Tool,
 I had enough time to think about it:
 do we really need line numbers?
 
 The purpose of line numbers (BASIC) or
 labels (MUMPS) is
 *line addressibility*,
-we can reference to a specific line
+we can reference a specific line
 with its unique line number (BASIC) or
 label plus offset (Mumps).
 
@@ -387,6 +397,7 @@ any line should be referenced individually,
 became obsolete
 with the introduction of
 structured programming.
+
 The concept of labels are closer to
 structured programming,
 the labels suggests to the programmer
@@ -396,6 +407,7 @@ subroutine entry points.
 MUMPS makes possible to refer to a line,
 which has no label, as *label plus offset*,
 but it's not recommended to do so.
+
 Although, in BASIC, you could `GOTO` any line,
 but there are similar recommendations.
 On the one hand,
@@ -404,11 +416,12 @@ and similarly
 you shouldn't jump to the middle of a subroutine.
 On the other hand,
 even though each line has its own unique line number,
-most lines are not refered as `GOTO` target,
-so most of line numbers are unnecessary.
+most lines are not refered as `GOTO` or other target,
+so these line numbers are simply unnecessary.
 
 The question is:
 then what is the role of the line numbers?
+
 The answer is:
 line numbers not only can be used as labels,
 but line numbering is the BASIC's *editor concept*.
@@ -459,9 +472,10 @@ so the modified line will replace the original one
 (if you keep the line number, otherwise
 you'll duplicate it).
 
-On MUMPS, there are external tools for modifying the line:
+On MUMPS, there are tools for modifying the line:
 DSM had a primitive line-based replace tool,
-MSM had a `vi`-like full screen editor (required VT100 terminal).
+MSM had a `vi`-like full screen editor
+(required VT100 terminal).
 
 On C64, without `RENUMBER` command,
 you can find yourself quickly in the situation
@@ -474,13 +488,18 @@ In MUMPS, there's no *line number anxiety*.
 
 Even neither BASIC or MUMPS is a structured language,
 kind of structured programs can be written in both.
-Only the feature that subroutines can have *names* in MUMPS,
+But only the feature that
+subroutines can have *names* in MUMPS,
 takes it closer to a structured language,
 and makes it a better programming language.
 Marking only important lines with a *label*,
 instead of marking every line with a *number*
-(which may change at the next `RENUMBER`)
-makes the program much easier to read.
+(which is volatile, because it may change at
+the next `RENUMBER`)
+makes the program much more easier to read.
+
+Also, using labels does not ruins
+version control's diffs as line numbering do.
 
 If you ask me, labels are far better than line numbers.
 
@@ -489,14 +508,169 @@ I should have been written
 some kind of label-to-numbers thing,
 but it would be not BASIC programming anymore.
 
----
 
-TODO: continue the story. Some notes below.
+### The lost focus
+
+We worked for a limited company.
+The Share Register was kept in a school notebook,
+it had records: serial numbers of shares and owners.
+Before some days of the annual general meeting,
+each owner had to show proof of ownership,
+then the Share Register gets updated,
+so for the day of the AGM,
+we have a certified list of owners,
+and we know who has how many votes.
+
+Then the company was went public,
+got listed on the stock exchange.
+
+The company lawyer, who
+"wasn't the sharpest knife in the drawer",
+realised only two weeks before the AGM
+that a school notebook, pencil and eraser
+were not the right technology for
+tracking stock market turnover,
+she panciked,
+and asked the IT department to help.
+
+A colleague and I
+wrote a complete system in two weeks,
+in FoxPro (probably the best dBase-like platform),
+which kept track of the shares and their holders,
+managed the stock exchange and brokers' certificates,
+supported the voting process:
+printed the voter tickers,
+registrated the actual votes,
+and stored the results.
+
+We calculated that the
+"one record per share" model
+was not feasible
+with the computing and database capacity at the time,
+so we split up the task:
+I wrote the magic backend that stored the
+same owner-stock number records in a consolidated manner,
+optimally merging the records for each change,
+keeping the database as small as possible
+and also the operations on it as fast as possible.
+
+My colleague created
+all the business logic
+and all the frontend stuff,
+the registration of owners,
+broker and stock exchange certificates,
+the menus, the screens with forms,
+the voting ticket printing and
+the vote module.
+
+If someone asked me to do the same thing today,
+I'd say I need four people and a half year.
+Why?
+
+One reason is that
+with these old systems,
+like dBase/FoxPro, BASIC, MUMPS etc.
+the programmer can focus on the actual job,
+and can be extremly effective.
+
+The other reason is that
+software development has become
+painfully bureaucratic.
+Adding a new field
+now takes two meetings and three weeks.
+I think, I'm not the only one
+who has worked in a workplace
+where following the process is
+more important than
+making the actual software.
+
+We totally lost the focus.
+
+When the lawyer came to us,
+we immediately started designing the program in head,
+listed the features and processes.
+We discussed and agreed the main feature: the method of voting.
+We early identified the problem of the too big database.
+I figured out a solution,
+the others voted in favour of the idea,
+I promised to implement a prototype ASAP,
+to see if it flies.
+Turned out soon, it would work.
+We stated that this is a critical part of the system,
+so I was prepared to do a lot of testing,
+there can be no bugs in it.
+Thus, the tasks were divided.
+All this happened in one morning,
+and we were already working on the code in the afternoon.
+
+Two weeks later we held the shareholders' meeting
+and the program worked without a glitch.
+This is not trivial nowadays,
+a software project is not always successful,
+and it is very rarely finished on time.
+
+When I was writing this game,
+I was reliving that experience.
+The part was given that I knew
+what I wanted to do,
+and also BASIC is a good partner in
+this kind of staight, rapid development.
+
+Programming at home is still fun.
 
 
 ### BASIC is dense
 
-266 LOC
+The whole program is **266 LOC**, including
+some data (note frequencies, intervals).
+
+This is what interpreted languages are for:
+write medium complex things
+in some dozens of lines.
+
+How many lines does it take to display a menu?
+As many menu items we have,
+plus one for the header and
+one for the blank lines.
+
+```
+1201 print "difficulty level:"
+1202 print
+1203 print " 0: sound test"
+1204 print " 1: rookie (2 of basic-7 set)"
+1205 print " 2: easy (3 of basic-7)"
+1206 print " 3: medium (any of basic-7)"
+1207 print " 4: hard (any of full-12)"
+1208 print " q: quit game"
+1209 print
+```
+How many lines does it take to
+ask the input from the user?
+One,
+which prints the question,
+and asks the input from the user.
+```
+1211 input "select"; k$
+```
+Okay, `INPUT` is lame, the actual code is:
+```
+1211 k$="select" :kk$="012345q" :gosub 8800
+```
+It's still one line. And the result is:
+
+<p align="center"><img src="fig-menu.png" width="66%" /></p>
+
+BASIC programs are short,
+and focusing only the thing they are doing.
+Sounds silly, I'm trying to rephrase it to make sense:
+no rituals, no meta stuff, no ceremonies.
+
+No bloated GUIs.
+
+
+### Terminal magic
+
+
 
 ### BASIC is framework
 
