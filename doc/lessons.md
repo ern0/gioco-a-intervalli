@@ -511,10 +511,25 @@ but it would be not BASIC programming anymore.
 
 ### The lost focus
 
+In recent years,
+in software development,
+we have lost the *focus*.
+Software development is now an industry:
+a lot of administration, 
+processes, 
+quality assurance etc.,
+and in the meantime 
+we forget that we should be 
+writing the program.
+
+Let me explain it with a short story.
+
 We worked for a limited company.
-The Share Register was kept in a school notebook,
-it had records: serial numbers of shares and owners.
-Before some days of the annual general meeting,
+Limited companies should kept a
+Share Register, it must contain:
+serial number renges of shares and their owners.
+Before some days of the 
+annual general meeting (AGM),
 each owner had to show proof of ownership,
 then the Share Register gets updated,
 so for the day of the AGM,
@@ -525,13 +540,18 @@ Then the company was went public,
 got listed on the stock exchange.
 
 The company lawyer, who
-"wasn't the sharpest knife in the drawer",
+"wasn't the sharpest tool in the shed",
 realised only two weeks before the AGM
-that a school notebook, pencil and eraser
+that her school notebook, pencil and eraser
 were not the right technology for
-tracking stock market turnover,
-she panciked,
-and asked the IT department to help.
+the Share Register anymore.
+Until we went public, we had only
+a handful of shareholders,
+so she had no problem with it,
+but she couldn't catch up with the
+stock market turnover.
+Sshe panciked, and
+asked the IT department to help.
 
 A colleague and I
 wrote a complete system in two weeks,
@@ -544,7 +564,7 @@ registrated the actual votes,
 and stored the results.
 
 We calculated that the
-"one record per share" model
+"one record per share" data model
 was not feasible
 with the computing and database capacity at the time,
 so we split up the task:
@@ -587,12 +607,18 @@ making the actual software.
 We totally lost the focus.
 
 When the lawyer came to us,
-we immediately started designing the program in head,
+we immediately started designing *the program* in head,
 listed the features and processes.
-We discussed and agreed the main feature: the method of voting.
+We did not started with a project kickoff meeting.
+From the very first moment, we started
+creating *the program*.
+
+First, we discussed and agreed the main feature:
+the method of voting.
 We early identified the problem of the too big database.
-I figured out a solution,
-the others voted in favour of the idea,
+I figured out a solution pretty early,
+and the others found it feasible, 
+they voted in favour of the idea.
 I promised to implement a prototype ASAP,
 to see if it flies.
 Turned out soon, it would work.
@@ -601,10 +627,10 @@ so I was prepared to do a lot of testing,
 there can be no bugs in it.
 Thus, the tasks were divided.
 All this happened in one morning,
-and we were already working on the code in the afternoon.
-
+and we were already working on the code.
 Two weeks later we held the shareholders' meeting
 and the program worked without a glitch.
+
 This is not trivial nowadays,
 a software project is not always successful,
 and it is very rarely finished on time.
@@ -614,9 +640,8 @@ I was reliving that experience.
 The part was given that I knew
 what I wanted to do,
 and also BASIC is a good partner in
-this kind of staight, rapid development.
-
-Programming at home is still fun.
+this kind of staight, 
+focused development.
 
 
 ### BASIC is dense
@@ -646,8 +671,7 @@ one for the blank lines.
 ```
 How many lines does it take to
 ask the input from the user?
-One,
-which prints the question,
+One, which prints the question,
 and asks the input from the user.
 ```
 1211 input "select"; k$
@@ -666,10 +690,10 @@ and focusing only the thing they are doing.
 Sounds silly, I'm trying to rephrase it to make sense:
 no rituals, no meta stuff, no ceremonies.
 
-No bloated GUIs.
+For example, there're no bloated GUIs.
 
 
-### Terminal apps
+### Terminal apps forever
 
 A program that can only be used with a mouse
 is a usability disaster.
@@ -682,8 +706,9 @@ If an item needs to be corrected,
 the clerk presses a few buttons and it's done.
 Selecting a payment method is
 also a matter of two button presses.
-An inexperienced user, like an average clerk,
-with a mouse - would die.
+An inexperienced user,
+like an average clerk,
+with a mouse, well, would die.
 
 A good characeter UI is clear,
 as user, you can always know
@@ -702,33 +727,36 @@ but where the workflow follows a strict path and
 there are only few, simple choices,
 it's ideal.
 
-I hope I managed to create a good UI. 
-The only difficulty is that 
-you don't have to use numbers 
-to get the answer during the game. 
-For one thing, 
-there would be no clear solution to 
-the problem of assigning which pitch to which number. 
-On the other hand, there are, 
-although rarely at the same time, 
+I hope I managed to create a good UI.
+The only difficulty is that
+you couldn't use numbers
+to get the answer during the game.
+For one thing,
+there would be no clear solution to
+the problem of assigning 
+which interval to which number.
+On the other hand, there are,
+although rarely at the same time,
 more than ten intervals in the game.
 So, I decided to use letters,
-wihtout holes, always re-arranged 
+wihtout holes, always re-arranged
 according to the actual interval set.
 
 I've created a custom input routine,
 with custom blinking cursor,
-which first displays the key pressed 
+which first displays the key pressed
 for a short time,
-then replaces it with what it means.
+then replaces it with the word what it means.
 
-A nice full-screen UI would be better,
-but the aim was 
-to make porting to other platforms 
+A nice full-screen GUI would be better,
+but the aim was
+to make porting to other platforms
 as easy as possible.
 
 
-### BASIC is framework
+### BASIC is what we have
+
+
 
 only langugage
 not too far from asm
