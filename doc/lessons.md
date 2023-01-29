@@ -1,5 +1,8 @@
 # Intervallo - What I learned from developing a simple game in Basic, after 35 years
 
+ <div class="copr">
+ by ern0, 2023.01.29 - repository: [intervallo](https://github.com/ern0/intervallo)
+ </div>
 
 ## Introduction
 
