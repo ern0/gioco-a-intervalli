@@ -411,7 +411,7 @@ was to make porting to other platforms
 as easy as possible.
 
 
-### The actual BASIC is what we have
+### BASIC is flat
 
 Before structured programming, 
 a language had a fixed number of instructions.
@@ -443,7 +443,7 @@ the business logic.
 You write the program in one go.
 
 
-### BASIC is EUP (End-User Programming)
+### BASIC is EUP
 
 The BASIC, 
 shipped with the computer, in its ROM,
@@ -479,3 +479,5 @@ or at most you invited the
 computer guy next door to help you.
 
 End-user programming, at its best.
+
+

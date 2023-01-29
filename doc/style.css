@@ -11,11 +11,6 @@ html, body {
 	word-wrap: break-word;
 }
 
-h1 { font-size: 36px; font-weight: normal; }
-h2 { font-size: 24px; font-weight: normal; }
-h3 { font-size: 20px; font-weight: normal; font-style: italic; }
-h4 { font-size: 16px; font-weight: normal; font-style: italic; }
-
 body {
 	padding-top: 1em;
 }
@@ -156,13 +151,6 @@ hr {
 	border-bottom: 2px solid;
 }
 
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
 table {
 	border-collapse: collapse;
 	margin-bottom: 0.7em;
@@ -268,4 +256,26 @@ blockquote {
 	border-right: 1px solid #aaaaaa;
 	background: #eeeeee;
 	margin: 0 0 6px 0;
+}
+
+h1 { font-size: 44px; font-weight: normal; }
+h2 { font-size: 32px; font-weight: normal; }
+h3 { font-size: 28px; font-weight: normal; font-style: italic; }
+h4 { font-size: 16px; font-weight: normal; font-style: italic; }
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+}
+
+h2 {
+	margin-top: 0.6em;
+	margin-bottom: 0.6em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h3 {
+	margin-top: 0.6em;
 }
