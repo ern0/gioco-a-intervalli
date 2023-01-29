@@ -75,6 +75,7 @@ certainly not without lessons.
 ### The idea
 
 Let's specify requirements:
+
 - The game should be written in pure BASIC,
   so it can easily be ported to other machines.
 	Commodore BASIC V2.0 seems a good choice,
@@ -116,6 +117,7 @@ And the pitch is Altezza.*
 
 Obviously, one item had to added
 to the requirement list:
+
 - the computer should be able to
   play an interval somehow.
 
@@ -338,7 +340,7 @@ calling a custom keyboard reader subroutine:
 ```
 It's still one line. And the result is:
 
-<p align="center"><img src="fig-menu.png" width="66%" /></p>
+<img src="fig-menu.png" style="min-height: 180px" class="fig" />
 
 BASIC programs are short,
 and focusing only the thing they are doing.
