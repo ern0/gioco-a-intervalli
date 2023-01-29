@@ -152,14 +152,7 @@ I have had only one difficulty:
 text editors do not support line numbering.
 
 
-## Lessons Learnt
-
-Below is a list of the experiences
-I have had during the development.
-They are listed in random order.
-
-
-### Avoid onboard development
+### No onboard development
 
 I'm not afraid of difficulties.
 I never had a floppy drive
@@ -173,28 +166,35 @@ So I'm not a snowflake.
 
 But it was not an option to
 develop on-board. Nor on emulator.
-Full-screen editor,
+Modern text-editor,
 frequent quick save
 and version control
 would heve been really missing.
 
 
+## Lessons Learnt
+
+Below is a list of the experiences
+I have had during the development.
+They are listed in random order.
+
+
 ### The renumber problem
 
-Even in the full-screen editor,
-writing a BASIC program requires to write
-line numbers as well.
-But the program is not written
-starting at the first line and
-finishing at the last.
+Writing a BASIC program requires 
+that you write line numbers.
+But we don't write the programs
+to start at the first line and 
+end at the last.
 So there comes a point
-when you have to renumber the lines,
+when we have to renumber the lines,
 to make room for inserting new ones.
 
 Of course, there's no text editor
 with renumber functionality
 or other support of BASIC.
-So, I had to write a *Renumber Tool* - you can find it
+So, I had to write a 
+*Renumber Tool* - you can find it
 in the repository: `renumber.py`.
 
 As turned out, 
@@ -420,31 +420,62 @@ you simply implement it by using `MID$()`.
 
 You cannot define new functions in BASIC. 
 
-OK, you can werite subroutines, 
+OK, you can write subroutines, 
 but it's inconvenient:
 a subroutine has no name, 
 no parameters, 
 no local variables, 
 no return value, 
-you have to solve it yourself 
+you have to solve everything yourself 
 using global variables. 
 
-So, you have to use 
+So, can only use 
 the actual instruction set.
 If your BASIC version supports 
 cursor positioning, you can use it, 
 if not, you can't.
 
 No libs, no frameworks,
-no 3rd party anyting.
+no 3rd party anything.
+No [call graph](https://en.wikipedia.org/wiki/Call_graph).
 You have to create the only one layer:
 the business logic.
 You write the program in one go.
 
 
-### BASIC is EUP
+### BASIC is EUP (End-User Programming)
 
+The BASIC, 
+shipped with the computer, in its ROM,
+is the most common development environment
+for the given machine,
+100% of the users has it.
 
+BASIC is easy to learn,
+even ones without software developer experience
+can understand a short BASIC program,
+or can write their own after some practicing.
 
-simple notation, e.g. no "=="
-novice excel users fn()
+Actually, 
+BASIC is *designed* to be easy to learn.
+If you are familiar with
+variables, numeric and string types,
+INPUT and PRINT instruction,
+concept of line numbers and GOTO, 
+IF/THEN and FOR/NEXT,
+you can create your own application.
+
+BASIC programs were published in newspapers,
+or even on 
+[vinly cover](https://hungame.blog/2017/04/10/rozsak-valerianak-kft-egyuttes/).
+
+If you had a computer 
+and didn't just play with it, 
+you had some knowledge of BASIC.
+If you wanted to solve 
+something with the computer, 
+you wrote your own BASIC program, 
+or at most you invited the 
+computer guy next door to help you.
+
+End-user programming, at its best.
