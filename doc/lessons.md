@@ -487,7 +487,7 @@ computer guy next door to help you.
 End-user programming, at its best.
 
 
-### Commodore Basic: can't use integer as loop variable
+### Commodore BASIC: no integer as loop variable
 
 The average BASIC programmer doesn't care much about types, 
 plus writing a postfix for every variable is inconvenient.
@@ -499,5 +499,15 @@ the `FOR/NEXT` instruction pair does not use integers.
 I think, it's a design flaw.
 
 
-### Commodore Basic: can't use reserved words in variable names
+### Commodore BASIC: variable name restrictions
 
+The BASIC interpreter uses only the first two letters 
+for difference between variebles,
+so `VAR1` and `VAR2` are the same.
+
+Also, reserved words should not be used in variable names.
+Reserved words are all the instruction names, e.g. `IF`, and
+some system variables, like `TI` or `ST`.
+For example, `START` and `DIFF` are invalid variable names.
+
+Even if you're very careful, you'll just run into one.
