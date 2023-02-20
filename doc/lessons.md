@@ -75,12 +75,12 @@ Adding the two together is
 certainly not without lessons.
 
 
-### The idea
+### Game idea
 
 Let's specify requirements:
 
 - The game should be written in pure BASIC,
-  so it can easily be ported to other machines.
+  so it can be easily ported to other machines.
 	Commodore BASIC V2.0 seems a good choice,
 	it's quite simple and standard, and
 	also Commodore 64 is an obvious alternative target.
@@ -179,9 +179,9 @@ would heve been really missing.
 
 ## Lessons Learnt
 
-Below is a list of the experiences
+*Below is a list of the experiences
 I have had during the development.
-They are listed in random order.
+They are listed in random order.*
 
 
 ### The renumber problem
@@ -226,21 +226,21 @@ But it was not really comfortable.
 Writing the Renumber Tool,
 I had enough time to think about it:
 do we really need line numbers?
-
 The purpose of line numbers is
 *line addressibility*,
 we can reference a specific line
 with its unique line number.
-
-The requirement, that
-any line should be referenced individually,
+This requirement, that
+lines should be referenced individually,
 became obsolete
 with the introduction of
-structured programming,
-or, probably it was never a real requirement.
+structured programming.
+Nevertheless, it was never a real requirement
+that *every* line should be referenced.
 
 The question is:
-then what is the role of the line numbers?
+then what is the exact role of 
+having line numbers for *each* line?
 
 The answer is:
 line numbers not only can be used as labels,
@@ -255,15 +255,14 @@ by using line numbers.
 
 On C64, without `RENUMBER` command,
 you can find yourself quickly in the situation
-that you can't insert a larger block of lines
+that you can't insert more lines
 because of line numbers.
 That's embarrasing, and can be solved only
 by some tiresome handwork.
 
 Labels are better, but
 that requires another editor concept,
-e.g. MUMPS.
-
+e.g. MUMPS. 
 If you ask me, labels are far better than line numbers.
 
 Yes, instead of writing `renumber.py`,
@@ -308,7 +307,6 @@ focused development.
 
 The whole program is **266 LOC**, including
 some data (note frequencies, intervals).
-
 This is what interpreted languages are for:
 write medium complex things
 in some dozens of lines.
@@ -375,7 +373,8 @@ the user always knows
 what options are available.
 You don't have to guess
 which icon the menu is hidden behind,
-where to tap to do certain thing,
+where to tap to do certain thing
+(icons are evil, flat UI rules! my ass.),
 how to go back,
 just look at 
 what the last line on the display says.
@@ -401,7 +400,7 @@ On the other hand, there are
 although rarely at the same time
 more than ten intervals in the game.
 So I decided to use letters,
-without holes, always rearranged according to the
+without holes, always rearranged
 according to the actual interval.
 
 I've created a custom input routine,
@@ -420,12 +419,14 @@ as easy as possible.
 
 Before structured programming, 
 a language had a fixed number of instructions.
-Today, if you do not have `LEFT$()` function, 
-you simply implement it by using `MID$()`.
+Today, if you do not have something like `LEFT$()` function, 
+you simply implement it from scratch, or by using 
+similar functions, say, `MID$()`.
 
-You cannot define new functions in BASIC. 
+You cannot define new functions in BASIC
+(only sigle-line ones with `DEF FN`.)
 
-OK, you can write subroutines, 
+Right, you can write subroutines, 
 but it's inconvenient:
 a subroutine has no name, 
 no parameters, 
@@ -434,15 +435,15 @@ no return value,
 you have to solve everything yourself 
 using global variables. 
 
-So, can only use 
+So, you can only use 
 the actual instruction set.
 If your BASIC version supports 
 cursor positioning, you can use it, 
 if not, you can't.
-
 No libs, no frameworks,
 no 3rd party anything.
-No [call graph](https://en.wikipedia.org/wiki/Call_graph).
+No 
+[call graph](https://en.wikipedia.org/wiki/Call_graph).
 You have to create the only one layer:
 the business logic.
 You write the program in one go.
@@ -485,4 +486,18 @@ computer guy next door to help you.
 
 End-user programming, at its best.
 
+
+### Commodore Basic: can't use integer as loop variable
+
+The average BASIC programmer doesn't care much about types, 
+plus writing a postfix for every variable is inconvenient.
+So after 35 years, it came as a surprise that 
+the `FOR/NEXT` instruction pair does not use integers.
+
+<img src="fig-fornext.png" style="min-height: 326px" class="fig" />
+
+I think, it's a design flaw.
+
+
+### Commodore Basic: can't use reserved words in variable names
 
