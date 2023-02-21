@@ -170,19 +170,6 @@ table > tbody > tr + tr > td {
 	border-top: 1px solid;
 }
 
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: var(--vscode-editor-font-family, "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace);
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
 body.wordWrap pre {
 	white-space: pre-wrap;
 }
@@ -239,7 +226,9 @@ pre code {
 
 
 code {
-	font-size: 1.3em;
+	font-family: "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+	font-size: 0.9em;
+	line-height: 1.357em;
 	font-weight: bold;
 	color: #424e92;
 	padding-left: 0.2em;
@@ -252,15 +241,6 @@ pre > code {
 	border: 1px solid #aaaaaa;
 	padding: 6px;
 }
-blockquote {
-  border-left: 6px solid #aaaaaa;
-	border-top: 1px solid #aaaaaa;
-	border-bottom: 1px solid #aaaaaa;
-	border-right: 1px solid #aaaaaa;
-	background: #eeeeee;
-	margin: 0 0 6px 0;
-}
-
 h1 { font-size: 44px; font-weight: normal; }
 h2 { font-size: 32px; font-weight: normal; }
 h3 { font-size: 28px; font-weight: normal; font-style: italic; }
@@ -303,3 +283,18 @@ h1, h2, h3, h4 {
 	text-align: right;
 	margin-right: 0.4em;
 }
+blockquote {
+	margin: 0 7px 12px 5px;
+	padding: 0 16px 0 10px;
+	border-left-style: solid;
+  border-left: 6px solid #aaaaaa;
+	border-top: 1px solid #aaaaaa;
+	border-bottom: 1px solid #aaaaaa;
+	border-right: 1px solid #aaaaaa;
+	background: #eeeeee;
+}
+blockquote > p {
+	padding: 6px 0 6px 0;
+	margin: 6px 0 6px 0;
+}
+

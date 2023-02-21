@@ -1,7 +1,7 @@
 # Intervallo - What I learned from developing a simple game in Basic, after 35 years
 
  <div class="copr">
- by ern0, 2023.01.29 - repository: [intervallo](https://github.com/ern0/intervallo)
+ by ern0, 2023.02.21 - repository: [intervallo](https://github.com/ern0/intervallo)
  </div>
 
 ## Introduction
@@ -113,7 +113,7 @@ and I know some terms,
 like piano, forte, parlando etc.,
 I don't know the name of "pitch distance".
 Probably, it's "intervallo",
-but maybe this is not a proper translation.
+but maybe this is not a proper translation.*
 >
 > **Luca:** *Yes, it's the intervallo.
 And the pitch is Altezza.*
@@ -341,7 +341,7 @@ calling a custom keyboard reader subroutine:
 ```
 It's still one line. And the result is:
 
-<img src="fig-menu.png" style="min-height: 180px" class="fig" />
+<img src="fig-menu.png" style="min-height: 180px; max-height: 180px;" class="fig" />
 
 BASIC programs are short,
 and focusing only the thing they are doing.
@@ -457,6 +457,12 @@ is the most common development environment
 for the given machine,
 100% of the users has it.
 
+> *"For a long, long time, if you were interested in computers at all, you programmed in BASIC. It was as unavoidable and inevitable as the air you breathed. Every time you booted up, there was that command prompt blinking away at you. Why not type in some BASIC commands and see what happens? And then the sense of wonder, of possibility, of being able to unlock the infinitely malleable universe inside your computer. Thus the careers of millions of programmers were launched."*
+>
+<div style="text-align: right;">
+*([Coding Horror](https://blog.codinghorror.com/everything-i-needed-to-know-about-programming-i-learned-from-basic/))*
+</div>
+
 BASIC is easy to learn,
 even ones without software developer experience
 can understand a short BASIC program,
@@ -471,18 +477,15 @@ concept of line numbers and GOTO,
 IF/THEN and FOR/NEXT,
 you can create your own application.
 
-BASIC programs were published in newspapers,
-or even on 
-[vinly cover](https://hungame.blog/2017/04/10/rozsak-valerianak-kft-egyuttes/).
-
-If you had a computer 
-and didn't just play with it, 
-you had some knowledge of BASIC.
 If you wanted to solve 
 something with the computer, 
 you wrote your own BASIC program, 
 or at most you invited the 
 computer guy next door to help you.
+
+BASIC programs were published in newspapers,
+or even on 
+[vinly cover](https://hungame.blog/2017/04/10/rozsak-valerianak-kft-egyuttes/).
 
 End-user programming, at its best.
 
@@ -490,13 +493,13 @@ End-user programming, at its best.
 ### Commodore BASIC: no integer as loop variable
 
 The average BASIC programmer doesn't care much about types, 
-plus writing a postfix for every variable is inconvenient.
+plus writing integer postfix for every variable is inconvenient.
 So after 35 years, it came as a surprise that 
-the `FOR/NEXT` instruction pair does not use integers.
+the `FOR/NEXT` instruction pair does not accept integers.
 
 <img src="fig-fornext.png" style="min-height: 326px" class="fig" />
 
-I think, it's a design flaw.
+Syntax error! I think, it's a design flaw.
 
 
 ### Commodore BASIC: variable name restrictions
@@ -510,4 +513,9 @@ Reserved words are all the instruction names, e.g. `IF`, and
 some system variables, like `TI` or `ST`.
 For example, `START` and `DIFF` are invalid variable names.
 
-Even if you're very careful, you'll just run into one.
+Even if you're very careful, you'll just run into one,
+so did I, of course.
+
+
+### Bottom line
+
